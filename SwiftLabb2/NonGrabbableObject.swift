@@ -6,8 +6,8 @@
 //  Copyright © 2017 Åsa Kwarnmark. All rights reserved.
 //
 
-import Foundation
+import SpriteKit
 
-class NonGrabbableObject {
+class NonGrabbableObject : SKSpriteNode {
     
 }

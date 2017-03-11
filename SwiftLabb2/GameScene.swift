@@ -15,7 +15,6 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     var player : GrabbableObject!
     var background : SKSpriteNode!
-    var inventorySprite : SKShapeNode!
     var inventory : Inventory?
     
     override func didMove(to view: SKView) {
@@ -28,24 +27,38 @@ class GameScene: SKScene {
         background.zPosition = 0
         addChild(background)
         
-        let boxHeight = CGFloat(100)
-        inventorySprite = SKShapeNode(rect: CGRect(x: (-1)*size.width/2, y: (-1)*size.height/2, width: size.width, height: boxHeight))
-        inventorySprite.fillColor = SKColor.green
-        inventorySprite.strokeColor = SKColor.red
-        inventorySprite.zPosition = 3
-        addChild(inventorySprite)
+        if let actualInventory = inventory {
+            actualInventory.removeFromParent()
+            addChild(actualInventory)
+            actualInventory.setSizeAndPosition()
+            actualInventory.zPosition = 1
+        } else {
+            inventory = Inventory()
+            addChild(inventory!)
+            inventory!.setSizeAndPosition()
+            inventory!.zPosition = 1
+        }
         
+        if(!inventory!.isInInventory("spaceship")) {
+            let spaceship = SKSpriteNode(imageNamed: "Spaceship")
+            spaceship.position = CGPoint(x: -100, y: -100)
+            spaceship.name = "spaceship"
+            spaceship.zPosition = 5
+            addChild(spaceship)
+        }
         
-        let playerSprite = SKSpriteNode(imageNamed: "Spaceship")
-        playerSprite.zPosition = 2
-        playerSprite.name = "player"
-        playerSprite.xScale = 0.5
-        playerSprite.yScale = 0.5
-        //addChild(playerSprite)
-        inventorySprite.addChild(playerSprite)
-        playerSprite.position = CGPoint(x: -50, y: 50)
+        if(!inventory!.isInInventory("farnsworth")) {
+            let professor = SKSpriteNode(imageNamed: "farnsworth")
+            professor.size.width = 100
+            professor.size.height = 100
+            professor.position = CGPoint(x: -300, y: -350)
+            professor.name = "farnsworth"
+            professor.zPosition = 5
+            addChild(professor)
+        }
         
-        player = GrabbableObject(sprite: playerSprite)
+        Comment.showComment(text: "Hey baberiba!", scene: self)
+        
         
         let leftArrowSprite = SKSpriteNode(imageNamed: "left_arrow")
         leftArrowSprite.zPosition = 1
@@ -53,49 +66,16 @@ class GameScene: SKScene {
         let leftArrowWidth = leftArrowSprite.size.width
         leftArrowSprite.position = CGPoint(x: (-1)*width/2 + leftArrowWidth/2, y: 0)
         addChild(leftArrowSprite)
-        
         /*
-        let rect = CGRect(x: -200, y: -200, width: 400, height: 400)
-        let square = SKShapeNode(rect: rect)
-        square.fillColor = SKColor.white
-        square.zPosition = 50
-        addChild(square)
- 
-        
-        let comment = SKLabelNode(fontNamed: "Chalkduster")
-        comment.text = "What a nice\n room!"
-        comment.fontSize = 40
-        comment.fontColor = SKColor.white
-        comment.position = CGPoint(x: 0, y: 0)
-        comment.zPosition = 100
-        addChild(comment)
- 
-        var commentShadows : [SKLabelNode] = []
-        
-        var i = 1
-        while(i <= 8) {
-            let newComment = SKLabelNode(fontNamed: "Chalkduster")
-            newComment.text = "What a nice\n room!"
-            newComment.fontSize = 40
-            newComment.fontColor = SKColor.black
-            newComment.position = CGPoint(x: i, y: (-1)*i)
-            newComment.zPosition = 99
-            commentShadows.append(newComment)
-            i += 1
-        }
- 
-        for shadow in commentShadows {
-            addChild(shadow)
-        }
-        
-        let multiLabel = SKMultilineLabel(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", labelWidth: 250, pos: CGPoint(x: size.width / 2, y: size.height / 2))
+        let multiLabel = SKMultilineLabel(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", labelWidth: 250, pos: CGPoint(x: 30, y: 30))
         multiLabel.zPosition = 10
         addChild(multiLabel)
         
         let multiLabel2 = SKMultilineLabel(text: "Hej bla bla bla bla bla tjosan hejsan hoppsan i lingonskogen tjo bla blä hej nej jo men fast att nej", labelWidth: 200, pos: CGPoint(x: 0, y: 0), fontName: "Chalkduster", fontSize: 40, fontColor: UIColor.black, leading: nil, alignment: .center, shouldShowBorder: true)
         multiLabel2.zPosition = 99
         addChild(multiLabel2)
-        */
+         */
+        
         /*
         
         // Get label node from scene and store it for use later
@@ -145,40 +125,47 @@ class GameScene: SKScene {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        if let label = self.label
+        {
             label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
         }
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-        for touch in (touches) {
+        for t in touches
+        {
+            self.touchDown(atPoint: t.location(in: self))
+        }
+        for touch in (touches)
+        {
             let positionInScene = touch.location(in: self)
-            if let touchedNode = self.atPoint(positionInScene) as? SKSpriteNode,
-            let name = touchedNode.name {
-                if name == "player" {
-                    moveToInventory(touchedNode)
-                } else if name == "left" {
-                    let reveal = SKTransition.reveal(with: .right,
-                                                     duration: 1)
-                    self.inventorySprite!.removeFromParent()
-                    let newScene = LeftWallScene()
-                    newScene.scaleMode = .aspectFill
-                    newScene.inventory = self.inventory
-                    newScene.inventorySprite = self.inventorySprite
-                    
-                    scene?.view?.presentScene(newScene,
-                                            transition: reveal)
+            if let touchedNode = self.atPoint(positionInScene) as? SKSpriteNode
+            {
+                if let name = touchedNode.name
+                {
+                    if name == "left"
+                    {
+                        let reveal = SKTransition.fade(withDuration: 2)
+                        self.inventory!.removeFromParent()
+                        if let newScene = SKScene(fileNamed: "LeftWallScene") as? LeftWallScene
+                        {
+                            newScene.size = self.frame.size
+                            newScene.scaleMode = .aspectFill
+                            newScene.inventory = self.inventory
+                            scene?.view?.presentScene(newScene,
+                                                      transition: reveal)
+                        }
+                    }
+                    else {
+                        inventory!.addToInventory(item: touchedNode)
+                    }
+                }
+                else
+                {
+                    inventory!.addToInventory(item: touchedNode)
                 }
             }
         }
-    }
-    
-    func moveToInventory(_ node : SKSpriteNode) {
-        node.setScale(0.3)
-        node.removeFromParent()
-        inventorySprite.addChild(node)
-        node.position = CGPoint(x: 0, y: 0 )
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -192,7 +179,6 @@ class GameScene: SKScene {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
-    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered

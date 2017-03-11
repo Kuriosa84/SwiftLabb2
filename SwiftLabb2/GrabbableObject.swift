@@ -9,20 +9,11 @@
 import Foundation
 import SpriteKit
 
-class GrabbableObject {
-    let sprite : SKSpriteNode
-    var direction : Float = Float.pi * 0.5
-    var speed : Float = 100
+class GrabbableObject : SKSpriteNode {
     
-    init(sprite: SKSpriteNode) {
-        self.sprite = sprite
-    }
-    
-    func update(deltaTime: Float) {
-        let pos = sprite.position
-        let newX = Float(pos.x) + cosf(direction) * speed * deltaTime
-        let newY = Float(pos.y) + sinf(direction) * speed * deltaTime
-        sprite.position = CGPoint(x: CGFloat(newX), y: CGFloat(newY))
+    //This is required by SKSpriteNode
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

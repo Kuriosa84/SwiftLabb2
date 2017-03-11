@@ -14,33 +14,39 @@ class LeftWallScene : SKScene {
     private var spinnyNode : SKShapeNode?
     var background : SKSpriteNode!
     var inventory : Inventory?
-    var inventorySprite : SKShapeNode?
+    /*
+    override init() {
+        super.init(size: CGSize(width: 800, height: 1200))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    */
     
     override func didMove(to view: SKView) {
         background = SKSpriteNode(imageNamed: "background2")
         background.size = self.frame.size
-        background.position = CGPoint(x: size.width/2, y: size.height/2)
+        background.position = CGPoint(x: 0, y: 0)
         background.zPosition = 0
         addChild(background)
-        //background.size = self.frame.size
-        
-        //let height = self.frame.size.height
-        let width = self.frame.size.width
-        
-        if let inventorySprite = inventorySprite {
-            self.addChild(inventorySprite)
-            let inventoryHeight = inventorySprite.frame.height
-            //let inventoryWidth = inventorySprite.size.width
-            inventorySprite.fillColor = UIColor.green
-            inventorySprite.position = CGPoint(x: width/2, y: inventoryHeight/2)
-            inventorySprite.zPosition = 1
-        }
-        
+
         let rightArrow = SKSpriteNode(imageNamed: "right_arrow")
         rightArrow.name = "right"
-        rightArrow.position = CGPoint(x: size.width/2 - rightArrow.size.width, y: 0)
+        rightArrow.position = CGPoint(x: size.width/2 - rightArrow.size.width/2, y: 0)
         rightArrow.zPosition = 2
         addChild(rightArrow)
+        
+        if let actualInventory = inventory {
+            actualInventory.removeFromParent()
+            addChild(actualInventory)
+            actualInventory.setSizeAndPosition()
+            actualInventory.zPosition = 1
+        } else {
+            inventory = Inventory()
+            inventory!.setSizeAndPosition()
+            inventory!.zPosition = 1
+        }
         /*
         let multiLabel = SKMultilineLabel(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", labelWidth: 250, pos: CGPoint(x: size.width / 2, y: size.height / 2))
         self.addChild(multiLabel)
@@ -83,42 +89,21 @@ class LeftWallScene : SKScene {
             if let touchedNode = self.atPoint(positionInScene) as? SKSpriteNode,
                 let name = touchedNode.name {
                 if name == "player" {
-                    moveToInventory(touchedNode)
+                    if let actualTouchedNode = touchedNode as? GrabbableObject {
+                        inventory!.addToInventory(item: actualTouchedNode)
+                    }
                 } else if name == "right" {
-                    let reveal = SKTransition.reveal(with: .left,
-                                                     duration: 1)
-                    let newScene = GameScene(size: self.frame.size)
-                    self.inventorySprite!.removeFromParent()
-                    newScene.inventory = self.inventory
-                    newScene.inventorySprite = self.inventorySprite
-                    
-                    scene?.view?.presentScene(newScene,
-                                              transition: reveal)
+                    let reveal = SKTransition.fade(withDuration: 2)
+                    if let newScene = SKScene(fileNamed: "GameScene") as? GameScene {
+                        newScene.size = self.frame.size
+                        newScene.scaleMode = .aspectFill
+                        newScene.inventory = self.inventory
+                        scene?.view?.presentScene(newScene,
+                                                  transition: reveal)
+                    }
                 }
             }
         }
-    }
-    
-    func moveToInventory(_ node : SKSpriteNode) {
-        
-        node.setScale(0.3)
-        
-        //let leftSide = -1 * self.frame.width / 2
-        //let bottomSide = -1 * self.frame.height / 2
-        /*
-         let rightSide = self.frame.width / 2
-         let topSide = self.frame.height / 2
-         */
-        /*
-         let leftSide = -1 * UIScreen.main.bounds.width
-         let bottomSide = -1 * UIScreen.main.bounds.height
-         */
-        //let height = node.size.height
-        //let width = node.size.width
-        node.removeFromParent()
-        inventorySprite!.addChild(node)
-        node.position = CGPoint(x: 0, y: 0 )
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
