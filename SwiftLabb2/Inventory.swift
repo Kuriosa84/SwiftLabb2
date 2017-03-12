@@ -17,18 +17,33 @@ class Inventory : SKSpriteNode {
     let itemWidth = CGFloat(80)
     let margin = CGFloat(10)
     var items : [String] = []
+    var markedItem : SKSpriteNode?
     
     init() {
         let texture = SKTexture(imageNamed: "inventory")
         //width 1000 är tillfälligt, sätter bredd i setSizeAndPosition()
-        super.init(texture: texture, color: UIColor.green, size: CGSize(width: 1000, height: self.height))
-        //sprite.childNode(withName: itemSprite)
+        super.init(texture: texture, color: .black, size: CGSize(width: 1000, height: self.height))
     }
     
     func setSizeAndPosition() {
         self.size = CGSize(width: self.parent!.frame.width, height: self.height)
         self.position = CGPoint(x: 0, y: (-1)*self.parent!.frame.height/2 + self.height/2)
         self.zPosition = 50
+    }
+    
+    func markItem(item: SKSpriteNode) {
+        item.colorBlendFactor = 1.0
+        item.color = .red
+        markedItem = item
+    }
+    
+    func unmarkItem(item: SKSpriteNode) {
+        item.colorBlendFactor = 0.0
+        markedItem = nil
+    }
+    
+    func useMarkedItem(with: SKSpriteNode) {
+        
     }
     
     func isInInventory(_ name: String) -> Bool {
@@ -55,7 +70,7 @@ class Inventory : SKSpriteNode {
         }
     }
     
-    func removeFromInventory(item: GrabbableObject) {
+    func removeFromInventory(item: SKSpriteNode) {
         if(item.parent == self) {
             item.removeFromParent()
         }

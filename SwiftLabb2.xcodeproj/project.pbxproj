@@ -11,6 +11,10 @@
 		47CC8D021E73F40000E43C51 /* SKMultilineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CC8D011E73F40000E43C51 /* SKMultilineLabel.swift */; };
 		47CC8D541E74462300E43C51 /* LeftWallScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47CC8D531E74462300E43C51 /* LeftWallScene.sks */; };
 		47CC8D561E74618300E43C51 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CC8D551E74618300E43C51 /* Spaceship.swift */; };
+		47CC8D581E75888400E43C51 /* RightWallScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47CC8D571E75888400E43C51 /* RightWallScene.sks */; };
+		47CC8D5A1E75889500E43C51 /* BackWallScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47CC8D591E75889500E43C51 /* BackWallScene.sks */; };
+		47CC8D5C1E758F9D00E43C51 /* SafeCloseUp.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47CC8D5B1E758F9D00E43C51 /* SafeCloseUp.sks */; };
+		47CC8D5E1E758FB800E43C51 /* SafeCloseUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CC8D5D1E758FB800E43C51 /* SafeCloseUp.swift */; };
 		47D878561E6ED7FC007EC0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D878551E6ED7FC007EC0F9 /* AppDelegate.swift */; };
 		47D878581E6ED7FC007EC0F9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47D878571E6ED7FC007EC0F9 /* GameScene.sks */; };
 		47D8785A1E6ED7FC007EC0F9 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47D878591E6ED7FC007EC0F9 /* Actions.sks */; };
@@ -36,6 +40,10 @@
 		47CC8D011E73F40000E43C51 /* SKMultilineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMultilineLabel.swift; sourceTree = "<group>"; };
 		47CC8D531E74462300E43C51 /* LeftWallScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LeftWallScene.sks; sourceTree = "<group>"; };
 		47CC8D551E74618300E43C51 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
+		47CC8D571E75888400E43C51 /* RightWallScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RightWallScene.sks; sourceTree = "<group>"; };
+		47CC8D591E75889500E43C51 /* BackWallScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackWallScene.sks; sourceTree = "<group>"; };
+		47CC8D5B1E758F9D00E43C51 /* SafeCloseUp.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SafeCloseUp.sks; sourceTree = "<group>"; };
+		47CC8D5D1E758FB800E43C51 /* SafeCloseUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeCloseUp.swift; sourceTree = "<group>"; };
 		47D878521E6ED7FC007EC0F9 /* SwiftLabb2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLabb2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D878551E6ED7FC007EC0F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47D878571E6ED7FC007EC0F9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 				47D878621E6ED7FC007EC0F9 /* Assets.xcassets */,
 				47D878711E6F4F13007EC0F9 /* background.jpg */,
 				47D8787F1E71BFF5007EC0F9 /* BackWallScene.swift */,
+				47CC8D591E75889500E43C51 /* BackWallScene.sks */,
 				47CC8CFF1E73715400E43C51 /* Comment.swift */,
 				47D878771E714BDF007EC0F9 /* GameLogic.swift */,
 				47D878571E6ED7FC007EC0F9 /* GameScene.sks */,
@@ -108,6 +117,9 @@
 				47D8785F1E6ED7FC007EC0F9 /* Main.storyboard */,
 				47D878731E714493007EC0F9 /* NonGrabbableObject.swift */,
 				47D8787D1E71BFE6007EC0F9 /* RightWallScene.swift */,
+				47CC8D571E75888400E43C51 /* RightWallScene.sks */,
+				47CC8D5B1E758F9D00E43C51 /* SafeCloseUp.sks */,
+				47CC8D5D1E758FB800E43C51 /* SafeCloseUp.swift */,
 				47D878791E715185007EC0F9 /* SafeLockFlag.swift */,
 				47D878751E7145EE007EC0F9 /* SafeLockTrialError.swift */,
 				47CC8D011E73F40000E43C51 /* SKMultilineLabel.swift */,
@@ -176,9 +188,12 @@
 			files = (
 				47D878611E6ED7FC007EC0F9 /* Main.storyboard in Resources */,
 				47CC8D541E74462300E43C51 /* LeftWallScene.sks in Resources */,
+				47CC8D5C1E758F9D00E43C51 /* SafeCloseUp.sks in Resources */,
 				47D878581E6ED7FC007EC0F9 /* GameScene.sks in Resources */,
 				47D878631E6ED7FC007EC0F9 /* Assets.xcassets in Resources */,
 				47D878721E6F4F13007EC0F9 /* background.jpg in Resources */,
+				47CC8D581E75888400E43C51 /* RightWallScene.sks in Resources */,
+				47CC8D5A1E75889500E43C51 /* BackWallScene.sks in Resources */,
 				47D878661E6ED7FC007EC0F9 /* LaunchScreen.storyboard in Resources */,
 				47D8785A1E6ED7FC007EC0F9 /* Actions.sks in Resources */,
 			);
@@ -197,6 +212,7 @@
 				47D878781E714BDF007EC0F9 /* GameLogic.swift in Sources */,
 				47D878741E714493007EC0F9 /* NonGrabbableObject.swift in Sources */,
 				47D8786E1E6EFAF3007EC0F9 /* GrabbableObject.swift in Sources */,
+				47CC8D5E1E758FB800E43C51 /* SafeCloseUp.swift in Sources */,
 				47D8787E1E71BFE6007EC0F9 /* RightWallScene.swift in Sources */,
 				47D8787A1E715185007EC0F9 /* SafeLockFlag.swift in Sources */,
 				47D878701E6F2F78007EC0F9 /* Inventory.swift in Sources */,

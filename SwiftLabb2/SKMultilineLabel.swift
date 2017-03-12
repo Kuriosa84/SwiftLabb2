@@ -136,8 +136,9 @@ class SKMultilineLabel: SKNode {
         }
         rect = SKShapeNode(rectOf: CGSize(width: labelWidth, height: labelHeight))
         if let rect = rect {
+            rect.fillColor = .white
             rect.strokeColor = UIColor.white
-            rect.lineWidth = 1
+            rect.lineWidth = 25
             rect.position = CGPoint(x: pos.x, y: pos.y - (CGFloat(labelHeight) / 2.0))
             addChild(rect)
         }

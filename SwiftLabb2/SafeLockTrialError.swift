@@ -7,44 +7,54 @@
 //
 
 import Foundation
+import SpriteKit
 
 class SafeLockTrialError {
     
     var correctSequence : [Int]
     var isCorrect : Bool
     var correctAnswers : Int
+    var scene : SKScene
     
-    init() {
+    init(scene : SKScene) {
         correctAnswers = 0
         isCorrect = true
-        correctSequence = [3, 1, 5, 4, 0, 2]
+        correctSequence = [3, 1, 5, 4, 6, 2]
+        self.scene = scene
     }
     
-    func guess(_ button: Int) {
-        if(button == correctSequence[correctAnswers]) {
+    func guess(_ button: SKSpriteNode) {
+        let buttonNr = Int(button.name!)!
+        if(buttonNr == correctSequence[correctAnswers]) {
             activateButton(button)
             correctAnswers += 1
             if(correctAnswers == correctSequence.count) {
                 openSafe()
             }
         } else {
-            deactivateButtons()
+            correctAnswers = 0
+            activateButton(button)
+            let when = DispatchTime.now() + 0.2 // 0.2 second delay
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.deactivateButtons()
+            }
+            
         }
     }
     
-    func activateButton(_ button: Int) {
-        //Make the button stay pressed
-        //Change sprite to other sprite
+    func activateButton(_ button: SKSpriteNode) {
+        button.colorBlendFactor = 1.0
+        button.color = .darkGray
     }
     
     func deactivateButtons() {
-        //Make all the buttons unpressed
-        //Change all the sprites of the buttons back
+        for button in SafeCloseUp.buttons {
+            button.colorBlendFactor = 0
+        }
     }
     
     func openSafe() {
-        //Kod för att öppna kassaskåpet...
-        //Click sound
+        Comment.showComment(text: "The safe is open! Hooray!", scene: scene)
     }
     
 }

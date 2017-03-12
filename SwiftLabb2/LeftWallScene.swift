@@ -25,12 +25,6 @@ class LeftWallScene : SKScene {
     */
     
     override func didMove(to view: SKView) {
-        background = SKSpriteNode(imageNamed: "background2")
-        background.size = self.frame.size
-        background.position = CGPoint(x: 0, y: 0)
-        background.zPosition = 0
-        addChild(background)
-
         let rightArrow = SKSpriteNode(imageNamed: "right_arrow")
         rightArrow.name = "right"
         rightArrow.position = CGPoint(x: size.width/2 - rightArrow.size.width/2, y: 0)
@@ -47,35 +41,18 @@ class LeftWallScene : SKScene {
             inventory!.setSizeAndPosition()
             inventory!.zPosition = 1
         }
-        /*
-        let multiLabel = SKMultilineLabel(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", labelWidth: 250, pos: CGPoint(x: size.width / 2, y: size.height / 2))
-        self.addChild(multiLabel)
- */
-        
     }
     
     func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
+        
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
+        
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -93,7 +70,7 @@ class LeftWallScene : SKScene {
                         inventory!.addToInventory(item: actualTouchedNode)
                     }
                 } else if name == "right" {
-                    let reveal = SKTransition.fade(withDuration: 2)
+                    let reveal = SKTransition.crossFade(withDuration: 1)
                     if let newScene = SKScene(fileNamed: "GameScene") as? GameScene {
                         newScene.size = self.frame.size
                         newScene.scaleMode = .aspectFill
