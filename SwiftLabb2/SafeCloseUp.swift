@@ -11,26 +11,39 @@ import SpriteKit
 
 class SafeCloseUp : SKScene {
     var safeLock : SafeLockTrialError!
+    var inventory : Inventory?
     //public static var button1, button2, button3, button4, button5, button6 : SKSpriteNode!
     public static var buttons : [SKSpriteNode]!
+    
     override func didMove(to view: SKView) {
+        
+        if let actualInventory = inventory {
+            actualInventory.removeFromParent()
+            addChild(actualInventory)
+            actualInventory.setSizeAndPosition()
+            actualInventory.zPosition = 1
+        } else {
+            inventory = Inventory()
+            inventory!.setSizeAndPosition()
+            inventory!.zPosition = 1
+        }
+        
         SafeCloseUp.buttons = []
         let margin = CGFloat(15)
-        let buttonWidth = size.width/6 - margin
+        let buttonWidth = CGFloat((size.width - 6*margin) / 3)
         
         //Create buttons for the safe opening puzzle
         for i in 1...6 {
             let newButton = SKSpriteNode(color: .gray, size: CGSize(width: buttonWidth, height: buttonWidth))
             newButton.name = "\(i)"
             if(i <= 3) {
-                newButton.position = CGPoint(x: (-1)*size.width/2 + CGFloat( (buttonWidth + margin) * (i-1)), y: (buttonWidth + margin) / 2)
+                newButton.position = CGPoint(x: (-1)*size.width/2 + buttonWidth/2 + 2 * margin + CGFloat( (buttonWidth + margin) * CGFloat(i-1)), y: (buttonWidth + margin) / 2)
             } else {
-                newButton.position = CGPoint(x: (-1)*size.width/2 + CGFloat( (buttonWidth + margin) * (i-4)), y: (-1)*(buttonWidth + margin) / 2)
+                newButton.position = CGPoint(x: (-1)*size.width/2 + buttonWidth/2 + 2 * margin + CGFloat( (buttonWidth + margin) * CGFloat(i-4)), y: (-1)*(buttonWidth + margin) / 2)
             }
             newButton.zPosition = 5
             self.addChild(newButton)
             SafeCloseUp.buttons.append(newButton)
-            
         }
         safeLock = SafeLockTrialError(scene: self)
     }
@@ -65,6 +78,7 @@ class SafeCloseUp : SKScene {
                         {
                             newScene.size = self.frame.size
                             newScene.scaleMode = .aspectFill
+                            newScene.inventory = self.inventory
                             scene?.view?.presentScene(newScene, transition: reveal)
                         }
                     } else {

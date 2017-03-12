@@ -60,6 +60,7 @@ class RightWallScene : SKScene {
                     {
                         newScene.size = self.frame.size
                         newScene.scaleMode = .aspectFill
+                        newScene.inventory = self.inventory
                         scene?.view?.presentScene(newScene, transition: reveal)
                     }
                 }

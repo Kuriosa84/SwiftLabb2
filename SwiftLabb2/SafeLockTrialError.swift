@@ -49,7 +49,7 @@ class SafeLockTrialError {
     
     func deactivateButtons() {
         for button in SafeCloseUp.buttons {
-            button.colorBlendFactor = 0
+            button.color = .gray
         }
     }
     
