@@ -9,11 +9,24 @@
 import Foundation
 import SpriteKit
 
-class GrabbableObject : SKSpriteNode {
-    
-    //This is required by SKSpriteNode
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+enum GrabbableObjectType : Int {
+    case doorKey, map
+    var spriteName : String {
+        let spriteNames = [
+            "doorKey",
+            "map"
+        ]
+        return spriteNames[rawValue]
     }
+}
+
+class GrabbableObject {
+    var type : GrabbableObjectType
+    var sprite : SKSpriteNode?
+    var isInInventory : Bool
     
+    init(type: GrabbableObjectType) {
+        self.type = type
+        isInInventory = false
+    }
 }

@@ -19,7 +19,7 @@ class Comment {
     }
     
     static func showComment(text: String, scene: SKScene) {
-        let multiLabel = SKMultilineLabel(text: text, labelWidth: 450, pos: CGPoint(x: 0, y: 0), fontName: "Chalkduster", fontSize: 30, fontColor: UIColor.black, leading: nil, alignment: .center, shouldShowBorder: true)
+        let multiLabel = SKMultilineLabel(text: text, labelWidth: Int(scene.size.width) - 40, pos: CGPoint(x: 0, y: 0), fontName: "Chalkduster", fontSize: 30, fontColor: UIColor.black, leading: nil, alignment: .center, shouldShowBorder: true)
         multiLabel.zPosition = 99
         scene.addChild(multiLabel)
         

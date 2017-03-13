@@ -9,46 +9,20 @@
 import Foundation
 import SpriteKit
 
-class RightWallScene : SKScene {
+class RightWallScene : AdventureScene {
     var background : SKSpriteNode!
-    var inventory : Inventory?
     var safe : SKSpriteNode?
     
     
     override func didMove(to view: SKView) {
-        let rightArrow = SKSpriteNode(imageNamed: "right_arrow")
-        rightArrow.name = "right"
-        rightArrow.position = CGPoint(x: size.width/2 - rightArrow.size.width/2, y: 0)
-        rightArrow.zPosition = 2
-        addChild(rightArrow)
         
-        if let actualInventory = inventory {
-            actualInventory.removeFromParent()
-            addChild(actualInventory)
-            actualInventory.setSizeAndPosition()
-            actualInventory.zPosition = 1
-        } else {
-            inventory = Inventory()
-            inventory!.setSizeAndPosition()
-            inventory!.zPosition = 1
-        }
+        super.didMove(to: view)
         
         self.safe = self.childNode(withName: "safe") as? SKSpriteNode
     }
     
-    func touchDown(atPoint pos : CGPoint) {
-        
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
         for touch in (touches) {
             let positionInScene = touch.location(in: self)
@@ -61,27 +35,31 @@ class RightWallScene : SKScene {
                         newScene.size = self.frame.size
                         newScene.scaleMode = .aspectFill
                         newScene.inventory = self.inventory
+                        newScene.progress = self.progress
+                        scene?.view?.presentScene(newScene, transition: reveal)
+                    }
+                } else if name == "right" {
+                    let reveal = SKTransition.crossFade(withDuration: 1)
+                    if let newScene = SKScene(fileNamed: "BackWallScene") as? BackWallScene
+                    {
+                        newScene.size = self.frame.size
+                        newScene.scaleMode = .aspectFill
+                        newScene.inventory = self.inventory
+                        newScene.progress = self.progress
+                        scene?.view?.presentScene(newScene, transition: reveal)
+                    }
+                } else if name == "left" {
+                    let reveal = SKTransition.crossFade(withDuration: 1)
+                    if let newScene = SKScene(fileNamed: "GameScene") as? GameScene
+                    {
+                        newScene.size = self.frame.size
+                        newScene.scaleMode = .aspectFill
+                        newScene.inventory = self.inventory
+                        newScene.progress = self.progress
                         scene?.view?.presentScene(newScene, transition: reveal)
                     }
                 }
             }
         }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
     }
 }

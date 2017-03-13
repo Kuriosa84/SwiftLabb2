@@ -7,74 +7,89 @@
 //
 
 import SpriteKit
+import Foundation
 
-class LeftWallScene : SKScene {
+class LeftWallScene : AdventureScene {
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    var background : SKSpriteNode!
-    var inventory : Inventory?
-    /*
-    override init() {
-        super.init(size: CGSize(width: 800, height: 1200))
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    */
+    var painting : SKSpriteNode!
+    var safe : SKSpriteNode!
+    var key : SKSpriteNode?
     
     override func didMove(to view: SKView) {
-        let rightArrow = SKSpriteNode(imageNamed: "right_arrow")
-        rightArrow.name = "right"
-        rightArrow.position = CGPoint(x: size.width/2 - rightArrow.size.width/2, y: 0)
-        rightArrow.zPosition = 2
-        addChild(rightArrow)
         
-        if let actualInventory = inventory {
-            actualInventory.removeFromParent()
-            addChild(actualInventory)
-            actualInventory.setSizeAndPosition()
-            actualInventory.zPosition = 1
-        } else {
-            inventory = Inventory()
-            inventory!.setSizeAndPosition()
-            inventory!.zPosition = 1
+        super.didMove(to: view)
+        
+        painting = self.childNode(withName: "painting") as! SKSpriteNode
+        if progress.removedPainting {
+            painting.position.y -= 300
         }
-    }
-    
-    func touchDown(atPoint pos : CGPoint) {
-        
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        
+        safe = self.childNode(withName: "colourSafe") as! SKSpriteNode
+        key = self.childNode(withName: "tealKey") as? SKSpriteNode
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
+        super.touchesBegan(touches, with: event)
         
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
         for touch in (touches) {
             let positionInScene = touch.location(in: self)
             if let touchedNode = self.atPoint(positionInScene) as? SKSpriteNode,
                 let name = touchedNode.name {
-                if name == "player" {
-                    if let actualTouchedNode = touchedNode as? GrabbableObject {
-                        inventory!.addToInventory(item: actualTouchedNode)
-                    }
-                } else if name == "right" {
+                if name == "right" {
                     let reveal = SKTransition.crossFade(withDuration: 1)
                     if let newScene = SKScene(fileNamed: "GameScene") as? GameScene {
                         newScene.size = self.frame.size
                         newScene.scaleMode = .aspectFill
                         newScene.inventory = self.inventory
+                        newScene.progress = self.progress
+                        scene?.view?.presentScene(newScene,
+                                                  transition: reveal)
+                    }
+                } else if name == "left" {
+                    let reveal = SKTransition.crossFade(withDuration: 1)
+                    if let newScene = SKScene(fileNamed: "BackWallScene") as? BackWallScene {
+                        newScene.size = self.frame.size
+                        newScene.scaleMode = .aspectFill
+                        newScene.inventory = self.inventory
+                        newScene.progress = self.progress
+                        scene?.view?.presentScene(newScene,
+                                                  transition: reveal)
+                    }
+                } else if name == "painting" {
+                    if !progress.removedPainting {
+                        if inventory?.markedItem?.name == "ladder" {
+                            progress.removedPainting = true
+                            painting.position.y -= 300
+                            let when = DispatchTime.now() + 0.5 // 0.5 second delay
+                            DispatchQueue.main.asyncAfter(deadline: when) {
+                                Comment.showComment(text: "There is a safe behind the painting!", scene: self)
+                            }
+                        } else if inventory?.markedItem == nil {
+                            Comment.showComment(text: "I can't reach it.", scene: self)
+                        } else {
+                            Comment.showComment(text: "I can't use that with the painting.", scene: self)
+                        }
+                    }
+                } else if name == "shelf" || name == "tealKey" {
+                    if !(inventory!.isInInventory("tealKey")) {
+                        if inventory?.markedItem?.name == "ladder" {
+                            if let actualKey = key {
+                                inventory?.addToInventory(item: actualKey)
+                                Comment.showComment(text: "Yes! I got the key! Maybe it will get me out of here!", scene: <#T##SKScene#>)
+                            }
+                        } else if inventory?.markedItem == nil {
+                            Comment.showComment(text: "There's a key there, but I can't reach it!", scene: self)
+                        } else {
+                            Comment.showComment(text: "I can't use that here.", scene: self)
+                        }
+                    }
+                } else if name == "colourSafe" {
+                    if let newScene = SKScene(fileNamed: "ColourSafeCloseUp") as? ColourSafeCloseUp {
+                        let reveal = SKTransition.crossFade(withDuration: 1)
+                        newScene.size = self.frame.size
+                        newScene.scaleMode = .aspectFill
+                        newScene.inventory = self.inventory
+                        newScene.progress = self.progress
                         scene?.view?.presentScene(newScene,
                                                   transition: reveal)
                     }
@@ -82,24 +97,4 @@ class LeftWallScene : SKScene {
             }
         }
     }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
-    
-    
-    
 }
