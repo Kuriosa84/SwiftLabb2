@@ -9,11 +9,24 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameViewController: UIViewController {
+    
+    //var backgroundMusic : SKAudioNode
+    public static var backgroundMusicPlayer : AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let bgMusicURL = Bundle.main.url(forResource: "spacecoast", withExtension: "mp3")!
+        do {
+        try GameViewController.backgroundMusicPlayer = AVAudioPlayer(contentsOf: bgMusicURL)
+        } catch {}
+        GameViewController.backgroundMusicPlayer.numberOfLoops = -1
+        GameViewController.backgroundMusicPlayer.volume = 0.4
+        GameViewController.backgroundMusicPlayer.prepareToPlay()
+        GameViewController.backgroundMusicPlayer.play()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'

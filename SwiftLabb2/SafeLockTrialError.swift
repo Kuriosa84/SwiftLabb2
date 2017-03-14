@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import AVFoundation
 import SpriteKit
 
 class SafeLockTrialError {
     
+    var soundPlayer : AVAudioPlayer!
     var correctSequence : [Int]
     var isCorrect : Bool
     var correctAnswers : Int
@@ -24,11 +26,15 @@ class SafeLockTrialError {
     }
     
     func guess(_ button: SKSpriteNode) {
+        if correctAnswers >= correctSequence.count {
+            return
+        }
+        
         let buttonNr = Int(button.name!)!
-        if(buttonNr == correctSequence[correctAnswers]) {
+        if buttonNr == correctSequence[correctAnswers] {
             activateButton(button)
             correctAnswers += 1
-            if(correctAnswers == correctSequence.count) {
+            if correctAnswers == correctSequence.count {
                 openSafe()
             }
         } else {
@@ -55,6 +61,14 @@ class SafeLockTrialError {
     
     func openSafe() {
         Comment.showComment(text: "The safe is open! Hooray!", scene: scene)
+        let soundURL = Bundle.main.url(forResource: "clicksound", withExtension: "mp3")!
+        do {
+            try soundPlayer = AVAudioPlayer(contentsOf: soundURL)
+        } catch {}
+        soundPlayer.volume = 1.0
+        soundPlayer.numberOfLoops = 0
+        soundPlayer.prepareToPlay()
+        soundPlayer.play()
     }
     
 }

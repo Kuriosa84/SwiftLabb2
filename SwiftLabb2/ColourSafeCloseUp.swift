@@ -41,7 +41,7 @@ class ColourSafeCloseUp : AdventureScene {
         case .green: newColour = UIColor(colorLiteralRed: 0.1, green: 0.6, blue: 0.2, alpha: 1.0)
         case .red: newColour = UIColor(colorLiteralRed: 0.9, green: 0.1, blue: 0.1, alpha: 1.0)
         case .white: newColour = UIColor.white
-        case .yellow: newColour = UIColor(colorLiteralRed: 0.9, green: 0.9, blue: 0.4, alpha: 1.0)
+        case .yellow: newColour = UIColor(colorLiteralRed: 0.9, green: 0.9, blue: 0.1, alpha: 1.0)
         }
         squares[nr].color = newColour
         if(lock.isCorrectCombination()) {

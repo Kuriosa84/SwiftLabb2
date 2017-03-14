@@ -11,15 +11,15 @@ import Foundation
 
 class GameScene: AdventureScene {
     
+    let reveal = SKTransition.crossFade(withDuration: 1)
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     var player : GrabbableObject!
     var background : SKSpriteNode!
     
+    
     override func didMove(to view: SKView) {
-        
         super.didMove(to: view)
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -32,7 +32,6 @@ class GameScene: AdventureScene {
             {
                 if let name = touchedNode.name {
                     if name == "right" {
-                        let reveal = SKTransition.crossFade(withDuration: 1)
                         if let newScene = SKScene(fileNamed: "RightWallScene") as? RightWallScene {
                             newScene.size = self.frame.size
                             newScene.scaleMode = .aspectFill
@@ -42,7 +41,6 @@ class GameScene: AdventureScene {
                                                       transition: reveal)
                         }
                     } else if name == "left" {
-                        let reveal = SKTransition.crossFade(withDuration: 1)
                         if let newScene = LeftWallScene(fileNamed: "LeftWallScene") {
                             newScene.size = self.frame.size
                             newScene.scaleMode = .aspectFill
@@ -53,10 +51,23 @@ class GameScene: AdventureScene {
                         }
                     } else  {
                         if name == "door" {
-                            if inventory?.markedItem.name == "tealKey" {
+                            if inventory?.markedItem?.name == "tealKey" {
                                 Comment.showComment(text: "Nooo! It doesn't fit! Maybe I'm stuck here forever...", scene: self)
+                            } else if inventory?.markedItem?.name == "goldKey" {
+                                Comment.showComment(text: "YES! It worked! I am finally out of here!", scene: self)
+                                GameViewController.backgroundMusicPlayer.stop()
+                                let when = DispatchTime.now() + 3 // 3 second delay
+                                DispatchQueue.main.asyncAfter(deadline: when) {
+                                    if let newScene = FinalScene(fileNamed: "FinalScene") {
+                                        newScene.size = self.frame.size
+                                        newScene.scaleMode = .aspectFill
+                                        self.scene?.view?.presentScene(newScene,
+                                                                  transition: self.reveal)
+                                    }
+                                }
+                            } else {
+                                Comment.showComment(text: "It's locked...", scene: self)
                             }
-                            Comment.showComment(text: "It's locked...", scene: self)
                         }
                     }
                 }

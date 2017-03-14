@@ -11,9 +11,16 @@ import SpriteKit
 
 class BackWallScene : AdventureScene {
     
+    var ladder : SKSpriteNode?
+    
     override func didMove(to view: SKView) {
         
         super.didMove(to: view)
+        
+        ladder = self.childNode(withName: "ladder") as! SKSpriteNode?
+        if progress.tookLadder {
+            ladder?.removeFromParent()
+        }
         
         let blueSky = SKSpriteNode(color: SKColor.init(colorLiteralRed: 0.6, green: 0.7, blue: 0.9, alpha: 1), size: frame.size)
         blueSky.zPosition = -2
@@ -56,7 +63,10 @@ class BackWallScene : AdventureScene {
                     }
                 } else if name == "ladder" {
                     inventory?.addToInventory(item: touchedNode)
+                    progress.tookLadder = true
                     Comment.showComment(text: "A ladder is always good to have. I'll just take it and carry it around.", scene: self)
+                } else if name == "windowBackground" {
+                    Comment.showComment(text: "It's snowing outside. It looks beautiful. But the window doesn't open.", scene: self)
                 }
             }
         }

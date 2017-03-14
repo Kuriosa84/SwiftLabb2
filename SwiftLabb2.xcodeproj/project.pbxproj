@@ -37,6 +37,11 @@
 		47FA8F281E772CE0008DF922 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F271E772CE0008DF922 /* Progress.swift */; };
 		47FA8F2A1E7732FB008DF922 /* ColourSafeCloseUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F291E7732FB008DF922 /* ColourSafeCloseUp.swift */; };
 		47FA8F2C1E7733E7008DF922 /* ColourSafeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F2B1E7733E7008DF922 /* ColourSafeLock.swift */; };
+		47FA8F301E775763008DF922 /* spacecoast.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47FA8F2F1E775763008DF922 /* spacecoast.mp3 */; };
+		47FA8F321E77CDCA008DF922 /* clicksound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47FA8F311E77CDCA008DF922 /* clicksound.mp3 */; };
+		47FA8F341E7802AA008DF922 /* FinalScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47FA8F331E7802AA008DF922 /* FinalScene.sks */; };
+		47FA8F361E781203008DF922 /* FinalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F351E781203008DF922 /* FinalScene.swift */; };
+		47FA8F381E781372008DF922 /* gettingthere.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47FA8F371E781372008DF922 /* gettingthere.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +77,11 @@
 		47FA8F271E772CE0008DF922 /* Progress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		47FA8F291E7732FB008DF922 /* ColourSafeCloseUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourSafeCloseUp.swift; sourceTree = "<group>"; };
 		47FA8F2B1E7733E7008DF922 /* ColourSafeLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourSafeLock.swift; sourceTree = "<group>"; };
+		47FA8F2F1E775763008DF922 /* spacecoast.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spacecoast.mp3; sourceTree = "<group>"; };
+		47FA8F311E77CDCA008DF922 /* clicksound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clicksound.mp3; sourceTree = "<group>"; };
+		47FA8F331E7802AA008DF922 /* FinalScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FinalScene.sks; sourceTree = "<group>"; };
+		47FA8F351E781203008DF922 /* FinalScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalScene.swift; sourceTree = "<group>"; };
+		47FA8F371E781372008DF922 /* gettingthere.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gettingthere.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,13 +120,17 @@
 				47D878621E6ED7FC007EC0F9 /* Assets.xcassets */,
 				47CC8D591E75889500E43C51 /* BackWallScene.sks */,
 				47D8787F1E71BFF5007EC0F9 /* BackWallScene.swift */,
+				47FA8F311E77CDCA008DF922 /* clicksound.mp3 */,
 				47FA8F251E772836008DF922 /* ColourSafeCloseUp.sks */,
 				47FA8F291E7732FB008DF922 /* ColourSafeCloseUp.swift */,
 				47FA8F2B1E7733E7008DF922 /* ColourSafeLock.swift */,
 				47CC8CFF1E73715400E43C51 /* Comment.swift */,
+				47FA8F331E7802AA008DF922 /* FinalScene.sks */,
+				47FA8F351E781203008DF922 /* FinalScene.swift */,
 				47D878571E6ED7FC007EC0F9 /* GameScene.sks */,
 				47D8785B1E6ED7FC007EC0F9 /* GameScene.swift */,
 				47D8785D1E6ED7FC007EC0F9 /* GameViewController.swift */,
+				47FA8F371E781372008DF922 /* gettingthere.mp3 */,
 				47D8786D1E6EFAF3007EC0F9 /* GrabbableObject.swift */,
 				47D878671E6ED7FC007EC0F9 /* Info.plist */,
 				47D8786F1E6F2F78007EC0F9 /* Inventory.swift */,
@@ -134,6 +148,7 @@
 				47D878751E7145EE007EC0F9 /* SafeLockTrialError.swift */,
 				47CC8D011E73F40000E43C51 /* SKMultilineLabel.swift */,
 				47FA8F211E76EB3E008DF922 /* Snow.sks */,
+				47FA8F2F1E775763008DF922 /* spacecoast.mp3 */,
 				47CC8D551E74618300E43C51 /* Spaceship.swift */,
 			);
 			path = SwiftLabb2;
@@ -198,11 +213,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47FA8F381E781372008DF922 /* gettingthere.mp3 in Resources */,
+				47FA8F321E77CDCA008DF922 /* clicksound.mp3 in Resources */,
 				47D878611E6ED7FC007EC0F9 /* Main.storyboard in Resources */,
 				47CC8D541E74462300E43C51 /* LeftWallScene.sks in Resources */,
+				47FA8F301E775763008DF922 /* spacecoast.mp3 in Resources */,
 				47FA8F221E76EB3E008DF922 /* Snow.sks in Resources */,
 				47CC8D5C1E758F9D00E43C51 /* SafeCloseUp.sks in Resources */,
 				47D878581E6ED7FC007EC0F9 /* GameScene.sks in Resources */,
+				47FA8F341E7802AA008DF922 /* FinalScene.sks in Resources */,
 				47D878631E6ED7FC007EC0F9 /* Assets.xcassets in Resources */,
 				47CC8D581E75888400E43C51 /* RightWallScene.sks in Resources */,
 				47CC8D5A1E75889500E43C51 /* BackWallScene.sks in Resources */,
@@ -230,6 +249,7 @@
 				47FA8F281E772CE0008DF922 /* Progress.swift in Sources */,
 				47D8787A1E715185007EC0F9 /* SafeLockFlag.swift in Sources */,
 				47FA8F2A1E7732FB008DF922 /* ColourSafeCloseUp.swift in Sources */,
+				47FA8F361E781203008DF922 /* FinalScene.swift in Sources */,
 				47FA8F2C1E7733E7008DF922 /* ColourSafeLock.swift in Sources */,
 				47D878701E6F2F78007EC0F9 /* Inventory.swift in Sources */,
 				47CC8D561E74618300E43C51 /* Spaceship.swift in Sources */,

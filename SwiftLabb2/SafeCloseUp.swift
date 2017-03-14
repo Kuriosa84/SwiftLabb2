@@ -9,24 +9,12 @@
 import Foundation
 import SpriteKit
 
-class SafeCloseUp : SKScene {
+class SafeCloseUp : AdventureScene {
     var safeLock : SafeLockTrialError!
-    var inventory : Inventory?
-    var progress : Progress!
     public static var buttons : [SKSpriteNode]!
     
     override func didMove(to view: SKView) {
-        
-        if let actualInventory = inventory {
-            actualInventory.removeFromParent()
-            addChild(actualInventory)
-            actualInventory.setSizeAndPosition()
-            actualInventory.zPosition = 1
-        } else {
-            inventory = Inventory()
-            inventory!.setSizeAndPosition()
-            inventory!.zPosition = 1
-        }
+        super.didMove(to: view)
         
         SafeCloseUp.buttons = []
         let margin = CGFloat(15)
@@ -48,7 +36,7 @@ class SafeCloseUp : SKScene {
         safeLock = SafeLockTrialError(scene: self)
     }
     
-    func touchDown(atPoint pos : CGPoint) {
+    override func touchDown(atPoint pos : CGPoint) {
         
     }
     
@@ -74,7 +62,8 @@ class SafeCloseUp : SKScene {
                             newScene.progress = self.progress
                             scene?.view?.presentScene(newScene, transition: reveal)
                         }
-                    } else {
+                    } else if name == "1" || name == "2" || name == "3" || name == "4"
+                        || name == "5" || name == "6" {
                         safeLock.guess(touchedNode)
                     }
                 }

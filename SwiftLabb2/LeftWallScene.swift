@@ -13,18 +13,33 @@ class LeftWallScene : AdventureScene {
     
     var painting : SKSpriteNode!
     var safe : SKSpriteNode!
-    var key : SKSpriteNode?
+    var tealKey : SKSpriteNode?
+    var goldKey : SKSpriteNode?
     
     override func didMove(to view: SKView) {
         
         super.didMove(to: view)
         
         painting = self.childNode(withName: "painting") as! SKSpriteNode
+        goldKey = self.childNode(withName: "goldKey") as? SKSpriteNode
+        
+        safe = self.childNode(withName: "colourSafe") as! SKSpriteNode
+        tealKey = self.childNode(withName: "tealKey") as? SKSpriteNode
+        if progress.tookTealKey {
+            tealKey?.removeFromParent()
+        }
+        if progress.openedColourSafe {
+            safe.texture = SKTexture(imageNamed: "openColourSafe")
+            if !progress.tookGoldKey {
+                goldKey!.zPosition = 2
+            }
+        }
         if progress.removedPainting {
             painting.position.y -= 300
         }
-        safe = self.childNode(withName: "colourSafe") as! SKSpriteNode
-        key = self.childNode(withName: "tealKey") as? SKSpriteNode
+        if progress.tookGoldKey {
+            goldKey?.removeFromParent()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -73,9 +88,10 @@ class LeftWallScene : AdventureScene {
                 } else if name == "shelf" || name == "tealKey" {
                     if !(inventory!.isInInventory("tealKey")) {
                         if inventory?.markedItem?.name == "ladder" {
-                            if let actualKey = key {
+                            if let actualKey = tealKey {
                                 inventory?.addToInventory(item: actualKey)
-                                Comment.showComment(text: "Yes! I got the key! Maybe it will get me out of here!", scene: <#T##SKScene#>)
+                                progress.tookTealKey = true
+                                Comment.showComment(text: "Yes! I got the key! Maybe it will get me out of here!", scene: self)
                             }
                         } else if inventory?.markedItem == nil {
                             Comment.showComment(text: "There's a key there, but I can't reach it!", scene: self)
@@ -93,6 +109,9 @@ class LeftWallScene : AdventureScene {
                         scene?.view?.presentScene(newScene,
                                                   transition: reveal)
                     }
+                } else if name == "goldKey" {
+                    inventory?.addToInventory(item: goldKey!)
+                    Comment.showComment(text: "This has to be the key to the door so that I can get out of here... right?", scene: self)
                 }
             }
         }

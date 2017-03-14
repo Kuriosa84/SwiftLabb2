@@ -10,11 +10,15 @@ import Foundation
 
 class Progress {
     
-    var openedGreySafe, openedColourSafe, removedPainting : Bool
+    var openedGreySafe, openedColourSafe, removedPainting, tookLadder, tookTealKey,
+        tookGoldKey: Bool
     
     init() {
         openedGreySafe = false
         openedColourSafe = false
         removedPainting = false
+        tookLadder = false
+        tookTealKey = false
+        tookGoldKey = false
     }
 }
