@@ -60,11 +60,17 @@ class SafeCloseUp : AdventureScene {
                             newScene.scaleMode = .aspectFill
                             newScene.inventory = self.inventory
                             newScene.progress = self.progress
+                            if progress.openedGreySafe {
+                                Comment.showComment(text: "It's a map of some country. It looks like a boot. I'll put it on the wall.", scene: newScene)
+                            }
                             scene?.view?.presentScene(newScene, transition: reveal)
                         }
                     } else if name == "1" || name == "2" || name == "3" || name == "4"
                         || name == "5" || name == "6" {
-                        safeLock.guess(touchedNode)
+                        if safeLock.guess(touchedNode) {
+                            progress.openedGreySafe = true
+                            Comment.showComment(text: "I opened the safe! Yay!", scene: self)
+                        }
                     }
                 }
             }

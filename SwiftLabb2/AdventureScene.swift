@@ -12,6 +12,7 @@ import SpriteKit
 class AdventureScene : SKScene {
     var inventory : Inventory?
     var progress : Progress!
+    var comment : SKMultilineLabel?
     
     override func didMove(to view: SKView) {
         if let actualInventory = inventory {
@@ -57,6 +58,8 @@ class AdventureScene : SKScene {
                         } else {
                             inventory!.markItem(item: touchedNode)
                         }
+                    } else if name == "comment" {
+                        touchedNode.removeFromParent()
                     }
                 }
             }

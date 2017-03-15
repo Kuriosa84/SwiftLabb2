@@ -62,9 +62,11 @@ class BackWallScene : AdventureScene {
                                                   transition: reveal)
                     }
                 } else if name == "ladder" {
-                    inventory?.addToInventory(item: touchedNode)
-                    progress.tookLadder = true
-                    Comment.showComment(text: "A ladder is always good to have. I'll just take it and carry it around.", scene: self)
+                    if !progress.tookLadder {
+                        inventory?.addToInventory(item: touchedNode)
+                        progress.tookLadder = true
+                        Comment.showComment(text: "A ladder is always good to have. I'll just take it and carry it around.", scene: self)
+                    }
                 } else if name == "windowBackground" {
                     Comment.showComment(text: "It's snowing outside. It looks beautiful. But the window doesn't open.", scene: self)
                 }

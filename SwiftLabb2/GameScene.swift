@@ -54,8 +54,9 @@ class GameScene: AdventureScene {
                             if inventory?.markedItem?.name == "tealKey" {
                                 Comment.showComment(text: "Nooo! It doesn't fit! Maybe I'm stuck here forever...", scene: self)
                             } else if inventory?.markedItem?.name == "goldKey" {
+                                Sound.playClickSound()
                                 Comment.showComment(text: "YES! It worked! I am finally out of here!", scene: self)
-                                GameViewController.backgroundMusicPlayer.stop()
+                                Sound.backgroundMusicPlayer.stop()
                                 let when = DispatchTime.now() + 3 // 3 second delay
                                 DispatchQueue.main.asyncAfter(deadline: when) {
                                     if let newScene = FinalScene(fileNamed: "FinalScene") {

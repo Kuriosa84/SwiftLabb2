@@ -25,9 +25,9 @@ class SafeLockTrialError {
         self.scene = scene
     }
     
-    func guess(_ button: SKSpriteNode) {
+    func guess(_ button: SKSpriteNode) -> Bool {
         if correctAnswers >= correctSequence.count {
-            return
+            return true
         }
         
         let buttonNr = Int(button.name!)!
@@ -36,6 +36,7 @@ class SafeLockTrialError {
             correctAnswers += 1
             if correctAnswers == correctSequence.count {
                 openSafe()
+                return true
             }
         } else {
             correctAnswers = 0
@@ -44,8 +45,8 @@ class SafeLockTrialError {
             DispatchQueue.main.asyncAfter(deadline: when) {
                 self.deactivateButtons()
             }
-            
         }
+        return false
     }
     
     func activateButton(_ button: SKSpriteNode) {
@@ -60,7 +61,6 @@ class SafeLockTrialError {
     }
     
     func openSafe() {
-        Comment.showComment(text: "The safe is open! Hooray!", scene: scene)
         let soundURL = Bundle.main.url(forResource: "clicksound", withExtension: "mp3")!
         do {
             try soundPlayer = AVAudioPlayer(contentsOf: soundURL)

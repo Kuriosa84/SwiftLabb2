@@ -98,19 +98,28 @@ class LeftWallScene : AdventureScene {
                         } else {
                             Comment.showComment(text: "I can't use that here.", scene: self)
                         }
+                    } else if progress!.tookTealKey && name == "shelf" {
+                        Comment.showComment(text: "It's a shelf. There used to be a key on it.", scene: self)
                     }
                 } else if name == "colourSafe" {
-                    if let newScene = SKScene(fileNamed: "ColourSafeCloseUp") as? ColourSafeCloseUp {
-                        let reveal = SKTransition.crossFade(withDuration: 1)
-                        newScene.size = self.frame.size
-                        newScene.scaleMode = .aspectFill
-                        newScene.inventory = self.inventory
-                        newScene.progress = self.progress
-                        scene?.view?.presentScene(newScene,
-                                                  transition: reveal)
+                    if !progress.openedColourSafe {
+                        if let newScene = SKScene(fileNamed: "ColourSafeCloseUp") as? ColourSafeCloseUp {
+                            let reveal = SKTransition.crossFade(withDuration: 1)
+                            newScene.size = self.frame.size
+                            newScene.scaleMode = .aspectFill
+                            newScene.inventory = self.inventory
+                            newScene.progress = self.progress
+                            scene?.view?.presentScene(newScene,
+                                                      transition: reveal)
+                        }
+                    } else if !progress.tookGoldKey {
+                        Comment.showComment(text: "There's a golden key in the safe. I should take it.", scene: self)
+                    } else {
+                        Comment.showComment(text: "There is nothing else in the safe.", scene: self)
                     }
                 } else if name == "goldKey" {
                     inventory?.addToInventory(item: goldKey!)
+                    progress.tookGoldKey = true
                     Comment.showComment(text: "This has to be the key to the door so that I can get out of here... right?", scene: self)
                 }
             }
