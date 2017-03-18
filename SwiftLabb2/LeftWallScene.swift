@@ -23,10 +23,9 @@ class LeftWallScene : AdventureScene {
         
         let paintingSprite = self.childNode(withName: "painting") as! SKSpriteNode
         let safeSprite = self.childNode(withName: "colourSafe") as! SKSpriteNode
+        let shelfSprite = self.childNode(withName: "shelf") as! SKSpriteNode
         let tealKeySprite = self.childNode(withName: "tealKey") as! SKSpriteNode
         let goldKeySprite = self.childNode(withName: "goldKey") as! SKSpriteNode
-        let shelfSprite = self.childNode(withName: "shelf") as! SKSpriteNode
-        
         if GVC.progress.tookTealKey {
             tealKeySprite.removeFromParent()
         }
@@ -35,20 +34,22 @@ class LeftWallScene : AdventureScene {
         }
         
         //Create objects
+        
         let painting = Painting(paintingSprite)
         let safe = ColourSafe(safeSprite)
+        let shelf = Shelf(shelfSprite)
         let tealKey = TealKey(tealKeySprite)
         let goldKey = GoldKey(goldKeySprite)
-        let shelf = Shelf(shelfSprite)
         gameObjects.append(painting)
         gameObjects.append(safe)
+        gameObjects.append(shelf)
         gameObjects.append(tealKey)
         gameObjects.append(goldKey)
-        gameObjects.append(shelf)
         
         if GVC.progress.openedColourSafe {
             safeSprite.texture = SKTexture(imageNamed: "openColourSafe")
             if !GVC.progress.tookGoldKey {
+                let goldKeySprite = self.childNode(withName: "goldKey") as! SKSpriteNode
                 goldKeySprite.zPosition = 2
             }
         }

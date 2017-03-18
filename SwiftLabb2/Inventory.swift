@@ -43,10 +43,15 @@ class Inventory {
     }
     
     func addToInventory(item: GameObject) {
+        
         items.append(item)
-        //Add item sprite as child of box
+        
         item.sprite.removeFromParent()
         self.sprite.addChild(item.sprite)
+        
+        //Add this to the sprite name to avoid confusion with the sprite in the scene
+        item.sprite.name! += "Inventory"
+        
         item.sprite.zPosition = 100
         //Make item smaller
         item.sprite.size = CGSize(width: itemWidth, height: itemWidth)

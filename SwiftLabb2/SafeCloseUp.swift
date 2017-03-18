@@ -13,6 +13,7 @@ import AVFoundation
 class SafeCloseUp : AdventureScene {
     var safeLock : SafeLockTrialError!
     var buttons : [SKSpriteNode]!
+    var soundPlayer : AVAudioPlayer?
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -43,7 +44,7 @@ class SafeCloseUp : AdventureScene {
     
     func openSafeSound() {
         let soundURL = Bundle.main.url(forResource: "clicksound", withExtension: "mp3")!
-        var soundPlayer : AVAudioPlayer?
+        
         do {
             try soundPlayer = AVAudioPlayer(contentsOf: soundURL)
         } catch {}
@@ -99,6 +100,7 @@ class SafeCloseUp : AdventureScene {
                             activateButton(touchedNode)
                             if safeLock.correctGuesses == safeLock.correctCombination.count {
                                 showComment("Yay! I opened the safe!")
+                                GVC.progress.openedGreySafe = true
                                 openSafeSound()
                             }
                         } else {

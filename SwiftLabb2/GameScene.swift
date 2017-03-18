@@ -25,22 +25,4 @@ class GameScene: AdventureScene {
         let door = Door(doorSprite)
         gameObjects.append(door)
     }
-    /*
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        super.touchesBegan(touches, with: event)
-        for touch in (touches)
-        {
-            let positionInScene = touch.location(in: self)
-            if let touchedNode = self.atPoint(positionInScene) as? SKSpriteNode
-            {
-                if let name = touchedNode.name {
-                    
-                    
-                    
-                }
-            }
-        }
-    }
- */
 }

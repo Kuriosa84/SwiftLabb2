@@ -18,16 +18,20 @@ class BackWallScene : AdventureScene {
         sceneToTheLeft = "RightWallScene"
         sceneToTheRight = "LeftWallScene"
         
-        let ladderSprite = self.childNode(withName: "ladder") as! SKSpriteNode
+        
+        
+            let ladderSprite = self.childNode(withName: "ladder") as! SKSpriteNode
+            let ladder = Ladder(ladderSprite)
+            gameObjects.append(ladder)
+        
+        //NEW STUFF
         if GVC.progress.tookLadder {
             ladderSprite.removeFromParent()
         }
-        let ladder = Ladder(ladderSprite)
+        
         
         let windowBackGroundSprite = self.childNode(withName: "windowBackground") as! SKSpriteNode
         let windowBackground = WindowBackground(windowBackGroundSprite)
-        
-        gameObjects.append(ladder)
         gameObjects.append(windowBackground)
         
         let blueSky = SKSpriteNode(color: SKColor.init(colorLiteralRed: 0.6, green: 0.7, blue: 0.9, alpha: 1), size: frame.size)
