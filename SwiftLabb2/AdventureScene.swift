@@ -21,7 +21,6 @@ class AdventureScene : SKScene {
     var gameObjects : [GameObject] = []
     
     override func didMove(to view: SKView) {
-        
         if let actualInventory = inventory {
             actualInventory.sprite.removeFromParent()
             addChild(actualInventory.sprite)
@@ -33,7 +32,6 @@ class AdventureScene : SKScene {
             addChild(inventorySprite!)
             inventory!.setSizeAndPosition()
         }
-        
     }
     
     func touchDown(atPoint pos : CGPoint) {

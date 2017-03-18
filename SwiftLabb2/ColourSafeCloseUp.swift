@@ -46,6 +46,7 @@ class ColourSafeCloseUp : AdventureScene {
         squares[nr].color = newColour
         if(lock.isCorrectCombination()) {
             showComment("Woohoo! My instinct was right! I opened the safe!")
+            Sound.playClickSound()
             GVC.progress.openedColourSafe = true
         }
     }

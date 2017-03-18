@@ -22,7 +22,6 @@
 		47D878631E6ED7FC007EC0F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D878621E6ED7FC007EC0F9 /* Assets.xcassets */; };
 		47D878661E6ED7FC007EC0F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D878641E6ED7FC007EC0F9 /* LaunchScreen.storyboard */; };
 		47D878701E6F2F78007EC0F9 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8786F1E6F2F78007EC0F9 /* Inventory.swift */; };
-		47D878761E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D878751E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift */; };
 		47D8787C1E7197ED007EC0F9 /* LeftWallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8787B1E7197ED007EC0F9 /* LeftWallScene.swift */; };
 		47D8787E1E71BFE6007EC0F9 /* RightWallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8787D1E71BFE6007EC0F9 /* RightWallScene.swift */; };
 		47D878801E71BFF5007EC0F9 /* BackWallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8787F1E71BFF5007EC0F9 /* BackWallScene.swift */; };
@@ -74,7 +73,6 @@
 		47D878651E6ED7FC007EC0F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D878671E6ED7FC007EC0F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47D8786F1E6F2F78007EC0F9 /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		47D878751E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeLockTrialErrorOldOne.swift; sourceTree = "<group>"; };
 		47D8787B1E7197ED007EC0F9 /* LeftWallScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftWallScene.swift; sourceTree = "<group>"; };
 		47D8787D1E71BFE6007EC0F9 /* RightWallScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightWallScene.swift; sourceTree = "<group>"; };
 		47D8787F1E71BFF5007EC0F9 /* BackWallScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackWallScene.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				47D878641E6ED7FC007EC0F9 /* LaunchScreen.storyboard */,
 				47D8785F1E6ED7FC007EC0F9 /* Main.storyboard */,
 				47FA8F271E772CE0008DF922 /* Progress.swift */,
-				47D878751E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift */,
 				47FA8F811E7D5075008DF922 /* SafeLockTrialError.swift */,
 				47FA8F3D1E793997008DF922 /* Sound.swift */,
 				47CC8D011E73F40000E43C51 /* SKMultilineLabel.swift */,
@@ -302,7 +299,6 @@
 				47FA8F501E7AC103008DF922 /* Left.swift in Sources */,
 				47FA8F821E7D5075008DF922 /* SafeLockTrialError.swift in Sources */,
 				47FA8F481E7AC0CD008DF922 /* Shelf.swift in Sources */,
-				47D878761E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift in Sources */,
 				47FA8F3E1E793997008DF922 /* Sound.swift in Sources */,
 				47D8785C1E6ED7FC007EC0F9 /* GameScene.swift in Sources */,
 				47FA8F7B1E7D00F7008DF922 /* GameObject.swift in Sources */,

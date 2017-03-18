@@ -30,9 +30,8 @@ class IntroScene : AdventureScene {
             let reveal = SKTransition.fade(withDuration: 6)
         if let scene = SKScene(fileNamed: "GameScene") {
             scene.scaleMode = .aspectFill
-            view?.presentScene(scene, transition: reveal)
+            view!.presentScene(scene, transition: reveal)
             }
-            
         }
     }
     

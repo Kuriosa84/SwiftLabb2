@@ -26,17 +26,4 @@ class RightWallScene : AdventureScene {
         gameObjects.append(italyMap)
         gameObjects.append(safe)
     }
-    /*
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-        for touch in (touches) {
-            let positionInScene = touch.location(in: self)
-            if let touchedNode = self.atPoint(positionInScene) as? SKSpriteNode,
-                let name = touchedNode.name {
-                
-            }
-        }
-    }
- */
 }

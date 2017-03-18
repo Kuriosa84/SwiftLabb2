@@ -12,23 +12,18 @@ import SpriteKit
 class BackWallScene : AdventureScene {
     
     override func didMove(to view: SKView) {
-        
         super.didMove(to: view)
         
         sceneToTheLeft = "RightWallScene"
         sceneToTheRight = "LeftWallScene"
         
+        let ladderSprite = self.childNode(withName: "ladder") as! SKSpriteNode
+        let ladder = Ladder(ladderSprite)
+        gameObjects.append(ladder)
         
-        
-            let ladderSprite = self.childNode(withName: "ladder") as! SKSpriteNode
-            let ladder = Ladder(ladderSprite)
-            gameObjects.append(ladder)
-        
-        //NEW STUFF
         if GVC.progress.tookLadder {
             ladderSprite.removeFromParent()
         }
-        
         
         let windowBackGroundSprite = self.childNode(withName: "windowBackground") as! SKSpriteNode
         let windowBackground = WindowBackground(windowBackGroundSprite)

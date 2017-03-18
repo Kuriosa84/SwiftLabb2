@@ -49,6 +49,7 @@ class GameObject : Equatable {
         
 }
 
+//Defined this to be able to use .contains in Inventory
 func ==(lhs: GameObject, rhs: GameObject) -> Bool {
     return class_getName(type(of: lhs)) == class_getName(type(of: rhs))
 }

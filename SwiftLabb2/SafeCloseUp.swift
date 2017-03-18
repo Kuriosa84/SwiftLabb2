@@ -42,18 +42,6 @@ class SafeCloseUp : AdventureScene {
         
     }
     
-    func openSafeSound() {
-        let soundURL = Bundle.main.url(forResource: "clicksound", withExtension: "mp3")!
-        
-        do {
-            try soundPlayer = AVAudioPlayer(contentsOf: soundURL)
-        } catch {}
-        soundPlayer?.volume = 1.0
-        soundPlayer?.numberOfLoops = 0
-        soundPlayer?.prepareToPlay()
-        soundPlayer?.play()
-    }
-    
     func activateButton(_ button: SKSpriteNode) {
         button.colorBlendFactor = 1.0
         button.color = .darkGray
@@ -67,6 +55,7 @@ class SafeCloseUp : AdventureScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
+        super.touchesBegan(touches, with: event)
         for t in touches
         {
             self.touchDown(atPoint: t.location(in: self))
@@ -101,7 +90,7 @@ class SafeCloseUp : AdventureScene {
                             if safeLock.correctGuesses == safeLock.correctCombination.count {
                                 showComment("Yay! I opened the safe!")
                                 GVC.progress.openedGreySafe = true
-                                openSafeSound()
+                                Sound.playClickSound()
                             }
                         } else {
                             activateButton(touchedNode)

@@ -9,7 +9,6 @@
 import Foundation
 
 class Progress {
-    
     var openedGreySafe, openedColourSafe, removedPainting, tookLadder, tookTealKey,
         tookGoldKey: Bool
     

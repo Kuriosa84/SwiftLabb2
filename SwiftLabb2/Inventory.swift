@@ -23,29 +23,13 @@ class Inventory {
         
     }
     
-    /**
-     * Call this function:
-     * if isInInventory(t: TealKey.self) {
-     *
-     * }
-    */
-    func isInInventory<T:GameObject>(t: T.Type) -> Bool {
-        for item in items {
-            if item is T {
-                return true
-            }
-        }
-        return false
-    }
-    
     func isInInventory(item: GameObject) -> Bool {
+        //== is defined for GameObject such that they are equal if they are of the same type
         return items.contains(item)
     }
     
     func addToInventory(item: GameObject) {
-        
         items.append(item)
-        
         item.sprite.removeFromParent()
         self.sprite.addChild(item.sprite)
         
@@ -83,6 +67,7 @@ class Inventory {
         }
     }
     
+    //removeFromInventory() is currently not used in the game. But maybe in future releases?
     func removeFromInventory(item: GameObject) {
         if let index = items.index(where: { $0 == item }) {
             items.remove(at: index)
