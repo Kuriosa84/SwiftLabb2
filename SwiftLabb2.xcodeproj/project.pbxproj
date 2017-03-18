@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		47CC8D001E73715400E43C51 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CC8CFF1E73715400E43C51 /* Comment.swift */; };
 		47CC8D021E73F40000E43C51 /* SKMultilineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CC8D011E73F40000E43C51 /* SKMultilineLabel.swift */; };
 		47CC8D541E74462300E43C51 /* LeftWallScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47CC8D531E74462300E43C51 /* LeftWallScene.sks */; };
-		47CC8D561E74618300E43C51 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CC8D551E74618300E43C51 /* Spaceship.swift */; };
 		47CC8D581E75888400E43C51 /* RightWallScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47CC8D571E75888400E43C51 /* RightWallScene.sks */; };
 		47CC8D5A1E75889500E43C51 /* BackWallScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47CC8D591E75889500E43C51 /* BackWallScene.sks */; };
 		47CC8D5C1E758F9D00E43C51 /* SafeCloseUp.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47CC8D5B1E758F9D00E43C51 /* SafeCloseUp.sks */; };
@@ -19,15 +17,12 @@
 		47D878581E6ED7FC007EC0F9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47D878571E6ED7FC007EC0F9 /* GameScene.sks */; };
 		47D8785A1E6ED7FC007EC0F9 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47D878591E6ED7FC007EC0F9 /* Actions.sks */; };
 		47D8785C1E6ED7FC007EC0F9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8785B1E6ED7FC007EC0F9 /* GameScene.swift */; };
-		47D8785E1E6ED7FC007EC0F9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8785D1E6ED7FC007EC0F9 /* GameViewController.swift */; };
+		47D8785E1E6ED7FC007EC0F9 /* GVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8785D1E6ED7FC007EC0F9 /* GVC.swift */; };
 		47D878611E6ED7FC007EC0F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D8785F1E6ED7FC007EC0F9 /* Main.storyboard */; };
 		47D878631E6ED7FC007EC0F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D878621E6ED7FC007EC0F9 /* Assets.xcassets */; };
 		47D878661E6ED7FC007EC0F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D878641E6ED7FC007EC0F9 /* LaunchScreen.storyboard */; };
-		47D8786E1E6EFAF3007EC0F9 /* GrabbableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8786D1E6EFAF3007EC0F9 /* GrabbableObject.swift */; };
 		47D878701E6F2F78007EC0F9 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8786F1E6F2F78007EC0F9 /* Inventory.swift */; };
-		47D878741E714493007EC0F9 /* NonGrabbableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D878731E714493007EC0F9 /* NonGrabbableObject.swift */; };
-		47D878761E7145EE007EC0F9 /* SafeLockTrialError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D878751E7145EE007EC0F9 /* SafeLockTrialError.swift */; };
-		47D8787A1E715185007EC0F9 /* SafeLockFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D878791E715185007EC0F9 /* SafeLockFlag.swift */; };
+		47D878761E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D878751E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift */; };
 		47D8787C1E7197ED007EC0F9 /* LeftWallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8787B1E7197ED007EC0F9 /* LeftWallScene.swift */; };
 		47D8787E1E71BFE6007EC0F9 /* RightWallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8787D1E71BFE6007EC0F9 /* RightWallScene.swift */; };
 		47D878801E71BFF5007EC0F9 /* BackWallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8787F1E71BFF5007EC0F9 /* BackWallScene.swift */; };
@@ -45,13 +40,25 @@
 		47FA8F3A1E78354E008DF922 /* IntroScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47FA8F391E78354E008DF922 /* IntroScene.sks */; };
 		47FA8F3C1E78355D008DF922 /* IntroScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F3B1E78355D008DF922 /* IntroScene.swift */; };
 		47FA8F3E1E793997008DF922 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F3D1E793997008DF922 /* Sound.swift */; };
+		47FA8F401E7ABFC4008DF922 /* GoldKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F3F1E7ABFC4008DF922 /* GoldKey.swift */; };
+		47FA8F431E7AC003008DF922 /* TealKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F421E7AC003008DF922 /* TealKey.swift */; };
+		47FA8F451E7AC017008DF922 /* Ladder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F441E7AC017008DF922 /* Ladder.swift */; };
+		47FA8F481E7AC0CD008DF922 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F471E7AC0CD008DF922 /* Shelf.swift */; };
+		47FA8F4A1E7AC0D8008DF922 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F491E7AC0D8008DF922 /* Painting.swift */; };
+		47FA8F4C1E7AC0EE008DF922 /* ColourSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F4B1E7AC0EE008DF922 /* ColourSafe.swift */; };
+		47FA8F4E1E7AC0F8008DF922 /* Right.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F4D1E7AC0F8008DF922 /* Right.swift */; };
+		47FA8F501E7AC103008DF922 /* Left.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F4F1E7AC103008DF922 /* Left.swift */; };
+		47FA8F521E7AC115008DF922 /* WindowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F511E7AC115008DF922 /* WindowBackground.swift */; };
+		47FA8F541E7AC128008DF922 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F531E7AC128008DF922 /* Door.swift */; };
+		47FA8F7B1E7D00F7008DF922 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F7A1E7D00F7008DF922 /* GameObject.swift */; };
+		47FA8F7E1E7D33A4008DF922 /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F7D1E7D33A4008DF922 /* Safe.swift */; };
+		47FA8F801E7D3558008DF922 /* ItalyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F7F1E7D3558008DF922 /* ItalyMap.swift */; };
+		47FA8F821E7D5075008DF922 /* SafeLockTrialError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FA8F811E7D5075008DF922 /* SafeLockTrialError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		47CC8CFF1E73715400E43C51 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		47CC8D011E73F40000E43C51 /* SKMultilineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMultilineLabel.swift; sourceTree = "<group>"; };
 		47CC8D531E74462300E43C51 /* LeftWallScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LeftWallScene.sks; sourceTree = "<group>"; };
-		47CC8D551E74618300E43C51 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
 		47CC8D571E75888400E43C51 /* RightWallScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RightWallScene.sks; sourceTree = "<group>"; };
 		47CC8D591E75889500E43C51 /* BackWallScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackWallScene.sks; sourceTree = "<group>"; };
 		47CC8D5B1E758F9D00E43C51 /* SafeCloseUp.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SafeCloseUp.sks; sourceTree = "<group>"; };
@@ -61,16 +68,13 @@
 		47D878571E6ED7FC007EC0F9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		47D878591E6ED7FC007EC0F9 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		47D8785B1E6ED7FC007EC0F9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		47D8785D1E6ED7FC007EC0F9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		47D8785D1E6ED7FC007EC0F9 /* GVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVC.swift; sourceTree = "<group>"; };
 		47D878601E6ED7FC007EC0F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47D878621E6ED7FC007EC0F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47D878651E6ED7FC007EC0F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D878671E6ED7FC007EC0F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47D8786D1E6EFAF3007EC0F9 /* GrabbableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrabbableObject.swift; sourceTree = "<group>"; };
 		47D8786F1E6F2F78007EC0F9 /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		47D878731E714493007EC0F9 /* NonGrabbableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonGrabbableObject.swift; sourceTree = "<group>"; };
-		47D878751E7145EE007EC0F9 /* SafeLockTrialError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeLockTrialError.swift; sourceTree = "<group>"; };
-		47D878791E715185007EC0F9 /* SafeLockFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeLockFlag.swift; sourceTree = "<group>"; };
+		47D878751E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeLockTrialErrorOldOne.swift; sourceTree = "<group>"; };
 		47D8787B1E7197ED007EC0F9 /* LeftWallScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftWallScene.swift; sourceTree = "<group>"; };
 		47D8787D1E71BFE6007EC0F9 /* RightWallScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightWallScene.swift; sourceTree = "<group>"; };
 		47D8787F1E71BFF5007EC0F9 /* BackWallScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackWallScene.swift; sourceTree = "<group>"; };
@@ -88,6 +92,20 @@
 		47FA8F391E78354E008DF922 /* IntroScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = IntroScene.sks; sourceTree = "<group>"; };
 		47FA8F3B1E78355D008DF922 /* IntroScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroScene.swift; sourceTree = "<group>"; };
 		47FA8F3D1E793997008DF922 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		47FA8F3F1E7ABFC4008DF922 /* GoldKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldKey.swift; sourceTree = "<group>"; };
+		47FA8F421E7AC003008DF922 /* TealKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TealKey.swift; sourceTree = "<group>"; };
+		47FA8F441E7AC017008DF922 /* Ladder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ladder.swift; sourceTree = "<group>"; };
+		47FA8F471E7AC0CD008DF922 /* Shelf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
+		47FA8F491E7AC0D8008DF922 /* Painting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
+		47FA8F4B1E7AC0EE008DF922 /* ColourSafe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourSafe.swift; sourceTree = "<group>"; };
+		47FA8F4D1E7AC0F8008DF922 /* Right.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Right.swift; sourceTree = "<group>"; };
+		47FA8F4F1E7AC103008DF922 /* Left.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Left.swift; sourceTree = "<group>"; };
+		47FA8F511E7AC115008DF922 /* WindowBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowBackground.swift; sourceTree = "<group>"; };
+		47FA8F531E7AC128008DF922 /* Door.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
+		47FA8F7A1E7D00F7008DF922 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		47FA8F7D1E7D33A4008DF922 /* Safe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
+		47FA8F7F1E7D3558008DF922 /* ItalyMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItalyMap.swift; sourceTree = "<group>"; };
+		47FA8F811E7D5075008DF922 /* SafeLockTrialError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeLockTrialError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,47 +138,80 @@
 		47D878541E6ED7FC007EC0F9 /* SwiftLabb2 */ = {
 			isa = PBXGroup;
 			children = (
+				47FA8F551E7AC788008DF922 /* Scenes */,
+				47FA8F461E7AC0B5008DF922 /* NonGrabbableObjects */,
+				47FA8F411E7ABFCE008DF922 /* GrabbableObjects */,
 				47D878591E6ED7FC007EC0F9 /* Actions.sks */,
-				47FA8F231E76EF62008DF922 /* AdventureScene.swift */,
 				47D878551E6ED7FC007EC0F9 /* AppDelegate.swift */,
 				47D878621E6ED7FC007EC0F9 /* Assets.xcassets */,
-				47CC8D591E75889500E43C51 /* BackWallScene.sks */,
-				47D8787F1E71BFF5007EC0F9 /* BackWallScene.swift */,
 				47FA8F311E77CDCA008DF922 /* clicksound.mp3 */,
-				47FA8F251E772836008DF922 /* ColourSafeCloseUp.sks */,
-				47FA8F291E7732FB008DF922 /* ColourSafeCloseUp.swift */,
 				47FA8F2B1E7733E7008DF922 /* ColourSafeLock.swift */,
-				47CC8CFF1E73715400E43C51 /* Comment.swift */,
-				47FA8F331E7802AA008DF922 /* FinalScene.sks */,
-				47FA8F351E781203008DF922 /* FinalScene.swift */,
-				47D878571E6ED7FC007EC0F9 /* GameScene.sks */,
-				47D8785B1E6ED7FC007EC0F9 /* GameScene.swift */,
-				47D8785D1E6ED7FC007EC0F9 /* GameViewController.swift */,
-				47FA8F391E78354E008DF922 /* IntroScene.sks */,
-				47FA8F3B1E78355D008DF922 /* IntroScene.swift */,
+				47FA8F7A1E7D00F7008DF922 /* GameObject.swift */,
+				47D8785D1E6ED7FC007EC0F9 /* GVC.swift */,
 				47FA8F371E781372008DF922 /* gettingthere.mp3 */,
-				47D8786D1E6EFAF3007EC0F9 /* GrabbableObject.swift */,
 				47D878671E6ED7FC007EC0F9 /* Info.plist */,
 				47D8786F1E6F2F78007EC0F9 /* Inventory.swift */,
 				47D878641E6ED7FC007EC0F9 /* LaunchScreen.storyboard */,
-				47CC8D531E74462300E43C51 /* LeftWallScene.sks */,
-				47D8787B1E7197ED007EC0F9 /* LeftWallScene.swift */,
 				47D8785F1E6ED7FC007EC0F9 /* Main.storyboard */,
-				47D878731E714493007EC0F9 /* NonGrabbableObject.swift */,
 				47FA8F271E772CE0008DF922 /* Progress.swift */,
-				47CC8D571E75888400E43C51 /* RightWallScene.sks */,
-				47D8787D1E71BFE6007EC0F9 /* RightWallScene.swift */,
-				47CC8D5B1E758F9D00E43C51 /* SafeCloseUp.sks */,
-				47CC8D5D1E758FB800E43C51 /* SafeCloseUp.swift */,
-				47D878791E715185007EC0F9 /* SafeLockFlag.swift */,
-				47D878751E7145EE007EC0F9 /* SafeLockTrialError.swift */,
+				47D878751E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift */,
+				47FA8F811E7D5075008DF922 /* SafeLockTrialError.swift */,
 				47FA8F3D1E793997008DF922 /* Sound.swift */,
 				47CC8D011E73F40000E43C51 /* SKMultilineLabel.swift */,
 				47FA8F211E76EB3E008DF922 /* Snow.sks */,
 				47FA8F2F1E775763008DF922 /* spacecoast.mp3 */,
-				47CC8D551E74618300E43C51 /* Spaceship.swift */,
 			);
 			path = SwiftLabb2;
+			sourceTree = "<group>";
+		};
+		47FA8F411E7ABFCE008DF922 /* GrabbableObjects */ = {
+			isa = PBXGroup;
+			children = (
+				47FA8F3F1E7ABFC4008DF922 /* GoldKey.swift */,
+				47FA8F441E7AC017008DF922 /* Ladder.swift */,
+				47FA8F421E7AC003008DF922 /* TealKey.swift */,
+			);
+			name = GrabbableObjects;
+			sourceTree = "<group>";
+		};
+		47FA8F461E7AC0B5008DF922 /* NonGrabbableObjects */ = {
+			isa = PBXGroup;
+			children = (
+				47FA8F4B1E7AC0EE008DF922 /* ColourSafe.swift */,
+				47FA8F531E7AC128008DF922 /* Door.swift */,
+				47FA8F7F1E7D3558008DF922 /* ItalyMap.swift */,
+				47FA8F4F1E7AC103008DF922 /* Left.swift */,
+				47FA8F491E7AC0D8008DF922 /* Painting.swift */,
+				47FA8F4D1E7AC0F8008DF922 /* Right.swift */,
+				47FA8F7D1E7D33A4008DF922 /* Safe.swift */,
+				47FA8F471E7AC0CD008DF922 /* Shelf.swift */,
+				47FA8F511E7AC115008DF922 /* WindowBackground.swift */,
+			);
+			name = NonGrabbableObjects;
+			sourceTree = "<group>";
+		};
+		47FA8F551E7AC788008DF922 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				47FA8F231E76EF62008DF922 /* AdventureScene.swift */,
+				47CC8D591E75889500E43C51 /* BackWallScene.sks */,
+				47D8787F1E71BFF5007EC0F9 /* BackWallScene.swift */,
+				47FA8F251E772836008DF922 /* ColourSafeCloseUp.sks */,
+				47FA8F291E7732FB008DF922 /* ColourSafeCloseUp.swift */,
+				47FA8F331E7802AA008DF922 /* FinalScene.sks */,
+				47FA8F351E781203008DF922 /* FinalScene.swift */,
+				47D878571E6ED7FC007EC0F9 /* GameScene.sks */,
+				47D8785B1E6ED7FC007EC0F9 /* GameScene.swift */,
+				47FA8F391E78354E008DF922 /* IntroScene.sks */,
+				47FA8F3B1E78355D008DF922 /* IntroScene.swift */,
+				47CC8D531E74462300E43C51 /* LeftWallScene.sks */,
+				47D8787B1E7197ED007EC0F9 /* LeftWallScene.swift */,
+				47CC8D571E75888400E43C51 /* RightWallScene.sks */,
+				47D8787D1E71BFE6007EC0F9 /* RightWallScene.swift */,
+				47CC8D5B1E758F9D00E43C51 /* SafeCloseUp.sks */,
+				47CC8D5D1E758FB800E43C51 /* SafeCloseUp.swift */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,28 +299,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47D878761E7145EE007EC0F9 /* SafeLockTrialError.swift in Sources */,
+				47FA8F501E7AC103008DF922 /* Left.swift in Sources */,
+				47FA8F821E7D5075008DF922 /* SafeLockTrialError.swift in Sources */,
+				47FA8F481E7AC0CD008DF922 /* Shelf.swift in Sources */,
+				47D878761E7145EE007EC0F9 /* SafeLockTrialErrorOldOne.swift in Sources */,
 				47FA8F3E1E793997008DF922 /* Sound.swift in Sources */,
 				47D8785C1E6ED7FC007EC0F9 /* GameScene.swift in Sources */,
+				47FA8F7B1E7D00F7008DF922 /* GameObject.swift in Sources */,
 				47CC8D021E73F40000E43C51 /* SKMultilineLabel.swift in Sources */,
-				47D878741E714493007EC0F9 /* NonGrabbableObject.swift in Sources */,
-				47D8786E1E6EFAF3007EC0F9 /* GrabbableObject.swift in Sources */,
+				47FA8F401E7ABFC4008DF922 /* GoldKey.swift in Sources */,
 				47CC8D5E1E758FB800E43C51 /* SafeCloseUp.swift in Sources */,
 				47FA8F241E76EF62008DF922 /* AdventureScene.swift in Sources */,
+				47FA8F521E7AC115008DF922 /* WindowBackground.swift in Sources */,
 				47D8787E1E71BFE6007EC0F9 /* RightWallScene.swift in Sources */,
 				47FA8F281E772CE0008DF922 /* Progress.swift in Sources */,
-				47D8787A1E715185007EC0F9 /* SafeLockFlag.swift in Sources */,
 				47FA8F2A1E7732FB008DF922 /* ColourSafeCloseUp.swift in Sources */,
 				47FA8F361E781203008DF922 /* FinalScene.swift in Sources */,
+				47FA8F4A1E7AC0D8008DF922 /* Painting.swift in Sources */,
 				47FA8F2C1E7733E7008DF922 /* ColourSafeLock.swift in Sources */,
 				47D878701E6F2F78007EC0F9 /* Inventory.swift in Sources */,
-				47CC8D561E74618300E43C51 /* Spaceship.swift in Sources */,
-				47CC8D001E73715400E43C51 /* Comment.swift in Sources */,
+				47FA8F4C1E7AC0EE008DF922 /* ColourSafe.swift in Sources */,
+				47FA8F4E1E7AC0F8008DF922 /* Right.swift in Sources */,
+				47FA8F801E7D3558008DF922 /* ItalyMap.swift in Sources */,
 				47FA8F3C1E78355D008DF922 /* IntroScene.swift in Sources */,
-				47D8785E1E6ED7FC007EC0F9 /* GameViewController.swift in Sources */,
+				47FA8F541E7AC128008DF922 /* Door.swift in Sources */,
+				47D8785E1E6ED7FC007EC0F9 /* GVC.swift in Sources */,
 				47D878801E71BFF5007EC0F9 /* BackWallScene.swift in Sources */,
 				47D878561E6ED7FC007EC0F9 /* AppDelegate.swift in Sources */,
 				47D8787C1E7197ED007EC0F9 /* LeftWallScene.swift in Sources */,
+				47FA8F431E7AC003008DF922 /* TealKey.swift in Sources */,
+				47FA8F7E1E7D33A4008DF922 /* Safe.swift in Sources */,
+				47FA8F451E7AC017008DF922 /* Ladder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

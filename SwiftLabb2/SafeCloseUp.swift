@@ -8,15 +8,16 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class SafeCloseUp : AdventureScene {
     var safeLock : SafeLockTrialError!
-    public static var buttons : [SKSpriteNode]!
+    var buttons : [SKSpriteNode]!
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        SafeCloseUp.buttons = []
+        buttons = []
         let margin = CGFloat(15)
         let buttonWidth = CGFloat((size.width - 6*margin) / 3)
         
@@ -31,13 +32,36 @@ class SafeCloseUp : AdventureScene {
             }
             newButton.zPosition = 5
             self.addChild(newButton)
-            SafeCloseUp.buttons.append(newButton)
+            buttons.append(newButton)
         }
-        safeLock = SafeLockTrialError(scene: self)
+        safeLock = SafeLockTrialError()
     }
     
     override func touchDown(atPoint pos : CGPoint) {
         
+    }
+    
+    func openSafeSound() {
+        let soundURL = Bundle.main.url(forResource: "clicksound", withExtension: "mp3")!
+        var soundPlayer : AVAudioPlayer?
+        do {
+            try soundPlayer = AVAudioPlayer(contentsOf: soundURL)
+        } catch {}
+        soundPlayer?.volume = 1.0
+        soundPlayer?.numberOfLoops = 0
+        soundPlayer?.prepareToPlay()
+        soundPlayer?.play()
+    }
+    
+    func activateButton(_ button: SKSpriteNode) {
+        button.colorBlendFactor = 1.0
+        button.color = .darkGray
+    }
+    
+    func deactivateButtons() {
+        for button in self.buttons {
+            button.color = .gray
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -59,17 +83,30 @@ class SafeCloseUp : AdventureScene {
                             newScene.size = self.frame.size
                             newScene.scaleMode = .aspectFill
                             newScene.inventory = self.inventory
-                            newScene.progress = self.progress
-                            if progress.openedGreySafe {
-                                Comment.showComment(text: "It's a map of some country. It looks like a boot. I'll put it on the wall.", scene: newScene)
+                            if GVC.progress.openedGreySafe {
+                                let multiLabel = SKMultilineLabel(text: "It's a map of some country. It looks like a boot. I'll put it on the wall.", labelWidth: Int(size.width) - 40, pos: CGPoint(x: 0, y: 0), fontName: "Chalkduster", fontSize: 30, fontColor: UIColor.black, leading: nil, alignment: .center, shouldShowBorder: true)
+                                multiLabel.zPosition = 99
+                                
+                                newScene.comment = multiLabel
+                                
+                                newScene.addChild(multiLabel)
                             }
                             scene?.view?.presentScene(newScene, transition: reveal)
                         }
                     } else if name == "1" || name == "2" || name == "3" || name == "4"
                         || name == "5" || name == "6" {
-                        if safeLock.guess(touchedNode) {
-                            progress.openedGreySafe = true
-                            Comment.showComment(text: "I opened the safe! Yay!", scene: self)
+                        if safeLock.guess(nr: Int(name)!) {
+                            activateButton(touchedNode)
+                            if safeLock.correctGuesses == safeLock.correctCombination.count {
+                                showComment("Yay! I opened the safe!")
+                                openSafeSound()
+                            }
+                        } else {
+                            activateButton(touchedNode)
+                            let when = DispatchTime.now() + 0.2 // 0.2 second delay
+                            DispatchQueue.main.asyncAfter(deadline: when) {
+                                self.deactivateButtons()
+                            }
                         }
                     }
                 }

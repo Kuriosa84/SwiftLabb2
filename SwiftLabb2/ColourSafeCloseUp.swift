@@ -45,8 +45,8 @@ class ColourSafeCloseUp : AdventureScene {
         }
         squares[nr].color = newColour
         if(lock.isCorrectCombination()) {
-            Comment.showComment(text: "Woohoo! My instinct was right! I opened the safe!", scene: self)
-            progress.openedColourSafe = true
+            showComment("Woohoo! My instinct was right! I opened the safe!")
+            GVC.progress.openedColourSafe = true
         }
     }
     
@@ -66,10 +66,9 @@ class ColourSafeCloseUp : AdventureScene {
                             newScene.size = self.frame.size
                             newScene.scaleMode = .aspectFill
                             newScene.inventory = self.inventory
-                            newScene.progress = self.progress
                             scene?.view?.presentScene(newScene, transition: reveal)
                         }
-                    } else if !progress.openedColourSafe && (name == "0" || name == "1" || name == "2") {
+                    } else if !GVC.progress.openedColourSafe && (name == "0" || name == "1" || name == "2") {
                         drawSquare(nr: Int(name)!)
                     }
                 }

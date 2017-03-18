@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  GVC.swift
 //  SwiftLabb2
 //
 //  Created by Asa Kwarnmark on 2017-03-07.
@@ -11,12 +11,13 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
-class GameViewController: UIViewController {
+class GVC: UIViewController {
     
-    //var backgroundMusic : SKAudioNode
+    static var progress : Progress!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        GVC.progress = Progress()
         
         if let view = self.view as! SKView? {
             //Turn on background music

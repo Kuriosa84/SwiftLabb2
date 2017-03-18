@@ -14,17 +14,18 @@ class IntroScene : AdventureScene {
     var nrOfClicks : Int = 0
     
     override func didMove(to view: SKView) {
-        inventory?.removeFromParent()
-        Comment.showComment(text: "Where am I? What happened?", scene: self)
+        inventory?.sprite.removeFromParent()
+        showComment("Where am I? What happened?")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         switch(nrOfClicks) {
-        case 0: Comment.showComment(text: "I'm feeling a bit dizzy.", scene: self)
+        case 0: showComment("I'm feeling a bit dizzy.")
             nrOfClicks += 1
-        case 1: Comment.showComment(text: "I seem to be in a small room...", scene: self)
+        case 1: showComment("I seem to be in a small room...")
             nrOfClicks += 1
-        default: Comment.showComment(text: "I have to try to get out of here somehow!", scene: self)
+        default: showComment("I have to try to get out of here somehow!")
         
             let reveal = SKTransition.fade(withDuration: 6)
         if let scene = SKScene(fileNamed: "GameScene") {

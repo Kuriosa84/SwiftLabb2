@@ -11,74 +11,82 @@
 import Foundation
 import SpriteKit
 
-class Inventory : SKSpriteNode {
-    var itemSprite : SKSpriteNode?
+class Inventory {
+    var sprite : SKSpriteNode!
+    var markedItem : GameObject?
+    var items : [GameObject] = []
     let height = CGFloat(100)
     let itemWidth = CGFloat(80)
     let margin = CGFloat(10)
-    var items : [String] = []
-    var markedItem : SKSpriteNode?
     
     init() {
-        let texture = SKTexture(imageNamed: "inventory")
-        //width 1000 är tillfälligt, sätter bredd i setSizeAndPosition()
-        super.init(texture: texture, color: .black, size: CGSize(width: 1000, height: self.height))
-    }
-    
-    func setSizeAndPosition() {
-        self.size = CGSize(width: self.parent!.frame.width, height: self.height)
-        self.position = CGPoint(x: 0, y: (-1)*self.parent!.frame.height/2 + self.height/2)
-        self.zPosition = 50
-    }
-    
-    func markItem(item: SKSpriteNode) {
-        item.colorBlendFactor = 1.0
-        item.color = .red
-        markedItem = item
-    }
-    
-    func unmarkItem(item: SKSpriteNode) {
-        item.colorBlendFactor = 0.0
-        markedItem = nil
-    }
-    
-    func useMarkedItem(with: SKSpriteNode) {
         
     }
     
-    func isInInventory(_ name: String) -> Bool {
-            return items.contains(name)
+    /**
+     * Call this function:
+     * if isInInventory(t: TealKey.self) {
+     *
+     * }
+    */
+    func isInInventory<T:GameObject>(t: T.Type) -> Bool {
+        for item in items {
+            if item is T {
+                return true
+            }
+        }
+        return false
     }
     
-    func addToInventory(item: SKSpriteNode) {
-        if let name = item.name {
-            items.append(name)
-        }
+    func isInInventory(item: GameObject) -> Bool {
+        return items.contains(item)
+    }
+    
+    func addToInventory(item: GameObject) {
+        items.append(item)
         //Add item sprite as child of box
-        item.removeFromParent()
-        self.addChild(item)
-        item.zPosition = 100
+        item.sprite.removeFromParent()
+        self.sprite.addChild(item.sprite)
+        item.sprite.zPosition = 100
         //Make item smaller
-        item.size = CGSize(width: itemWidth, height: itemWidth)
+        item.sprite.size = CGSize(width: itemWidth, height: itemWidth)
         //Place item as far to the left as possible without overlapping other items
-        item.position = CGPoint(x: margin + (-1)*self.size.width/2 + CGFloat(self.children.count) * (itemWidth + margin), y: 0)
+        item.sprite.position = CGPoint(x: margin + (-1)*self.sprite.size.width/2 + CGFloat(self.sprite.children.count) * (itemWidth + margin), y: 0)
+
+    }
+    
+    func markItem(item: GameObject) {
+        item.sprite.colorBlendFactor = 1.0
+        item.sprite.color = .red
+        markedItem = item
+    }
+    
+    func unmarkItem(item: GameObject) {
+        item.sprite.colorBlendFactor = 0.0
+        markedItem = nil
+    }
+    
+    func setSizeAndPosition() {
+        sprite.size = CGSize(width: sprite.parent!.frame.width, height: self.height)
+        sprite.position = CGPoint(x: 0, y: (-1)*sprite.parent!.frame.height/2 + self.height/2)
+        sprite.zPosition = 50
     }
     
     func arrangeItems() {
-        for (i, item) in self.children.enumerated() {
-            item.position = CGPoint(x: margin + (-1)*self.size.width/2 + CGFloat(i) * (itemWidth + margin), y: 0)
+        for (i, item) in sprite.children.enumerated() {
+            item.position = CGPoint(x: margin + (-1)*sprite.size.width/2 + CGFloat(i) * (itemWidth + margin), y: 0)
         }
     }
     
-    func removeFromInventory(item: SKSpriteNode) {
-        if(item.parent == self) {
-            item.removeFromParent()
+    func removeFromInventory(item: GameObject) {
+        if let index = items.index(where: { $0 == item }) {
+            items.remove(at: index)
         }
+        if let parent = item.sprite.parent {
+            if parent == sprite {
+                item.sprite.removeFromParent()
+            }
+        }
+        arrangeItems()
     }
-    
-    //This one is required by SKSpriteNode
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }
