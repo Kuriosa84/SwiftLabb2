@@ -15,7 +15,6 @@
 		47CC8D5E1E758FB800E43C51 /* SafeCloseUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CC8D5D1E758FB800E43C51 /* SafeCloseUp.swift */; };
 		47D878561E6ED7FC007EC0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D878551E6ED7FC007EC0F9 /* AppDelegate.swift */; };
 		47D878581E6ED7FC007EC0F9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47D878571E6ED7FC007EC0F9 /* GameScene.sks */; };
-		47D8785A1E6ED7FC007EC0F9 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 47D878591E6ED7FC007EC0F9 /* Actions.sks */; };
 		47D8785C1E6ED7FC007EC0F9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8785B1E6ED7FC007EC0F9 /* GameScene.swift */; };
 		47D8785E1E6ED7FC007EC0F9 /* GVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D8785D1E6ED7FC007EC0F9 /* GVC.swift */; };
 		47D878611E6ED7FC007EC0F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D8785F1E6ED7FC007EC0F9 /* Main.storyboard */; };
@@ -65,7 +64,6 @@
 		47D878521E6ED7FC007EC0F9 /* SwiftLabb2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLabb2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D878551E6ED7FC007EC0F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47D878571E6ED7FC007EC0F9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		47D878591E6ED7FC007EC0F9 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		47D8785B1E6ED7FC007EC0F9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		47D8785D1E6ED7FC007EC0F9 /* GVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVC.swift; sourceTree = "<group>"; };
 		47D878601E6ED7FC007EC0F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 				47FA8F551E7AC788008DF922 /* Scenes */,
 				47FA8F461E7AC0B5008DF922 /* NonGrabbableObjects */,
 				47FA8F411E7ABFCE008DF922 /* GrabbableObjects */,
-				47D878591E6ED7FC007EC0F9 /* Actions.sks */,
 				47D878551E6ED7FC007EC0F9 /* AppDelegate.swift */,
 				47D878621E6ED7FC007EC0F9 /* Assets.xcassets */,
 				47FA8F311E77CDCA008DF922 /* clicksound.mp3 */,
@@ -285,7 +282,6 @@
 				47CC8D5A1E75889500E43C51 /* BackWallScene.sks in Resources */,
 				47D878661E6ED7FC007EC0F9 /* LaunchScreen.storyboard in Resources */,
 				47FA8F261E772836008DF922 /* ColourSafeCloseUp.sks in Resources */,
-				47D8785A1E6ED7FC007EC0F9 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
